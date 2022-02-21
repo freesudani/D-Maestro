@@ -7,6 +7,7 @@ import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
+    position: "sticky",
     display: "flex",
     justifyContent: "space-between",
   },
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
   const classes = useStyles();
   return (
-    <AppBar className={classes.AppBar}>
+    <AppBar>
       <Toolbar className={classes.toolbar}>
         <div>
           <Typography variant="h6">Maestro</Typography>
