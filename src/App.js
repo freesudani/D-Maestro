@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import Socials from "./pages/Socials";
+import ToolsServices from "./pages/ToolsServices";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/welcome" />} />
         <Route path="/welcome" element={<Home />} />
+        <Route path="/tools" element={<ToolsServices />} />
         <Route path="/socials" element={<Socials />} />
       </Routes>
     </div>

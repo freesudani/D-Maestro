@@ -7,7 +7,7 @@ import bgImage from "../images/pexels-revac-films&photography-205333.jpg";
 
 const useStyles = makeStyles((theme) => ({
   social: {
-    paddingTop: "8rem",
+    paddingTop: "6rem",
     backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${bgImage})`,
     backgroundSize: "cover",
     height: "100vh",
