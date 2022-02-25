@@ -13,6 +13,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Box,
 } from "@material-ui/core";
 import StarRateIcon from "@material-ui/icons/StarRate";
 
@@ -84,7 +85,7 @@ const ToolsServices = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.tools}>
+    <Box className={classes.tools}>
       <Typography
         className={classes.header}
         variant="h6"
@@ -111,7 +112,7 @@ const ToolsServices = () => {
       >
         Enterprise-grade infrastructure & developer API to power cardano
       </Typography>
-      <div className={classes.cards}>
+      <Box className={classes.cards}>
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
@@ -241,8 +242,8 @@ const ToolsServices = () => {
             </CardContent>
           </CardActionArea>
         </Card>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

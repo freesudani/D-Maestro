@@ -6,6 +6,7 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Box,
 } from "@material-ui/core";
 
 import mpImage1 from "../images/pexels-fiona-art-4725323.jpg";
@@ -113,9 +114,9 @@ const useStyles = makeStyles((theme) => ({
 function Marketplace() {
   const classes = useStyles();
   return (
-    <div className={classes.market}>
-      <div className={classes.top}>
-        <div className={classes.topleft}>
+    <Box className={classes.market}>
+      <Box className={classes.top}>
+        <Box className={classes.topleft}>
           <Typography
             className={classes.header}
             variant="h6"
@@ -141,9 +142,9 @@ function Marketplace() {
           >
             discover top crypto projects
           </Typography>
-        </div>
-        <div className={classes.topright}>
-          <div className={classes.statistics}>
+        </Box>
+        <Box className={classes.topright}>
+          <Box className={classes.statistics}>
             <Typography
               variant="h6"
               align="right"
@@ -159,8 +160,8 @@ function Marketplace() {
             >
               Active ISPO
             </Typography>
-          </div>
-          <div className={classes.statistics}>
+          </Box>
+          <Box className={classes.statistics}>
             <Typography
               variant="h6"
               align="right"
@@ -176,8 +177,8 @@ function Marketplace() {
             >
               Total STaked
             </Typography>
-          </div>
-          <div className={classes.statistics}>
+          </Box>
+          <Box className={classes.statistics}>
             <Typography
               variant="h6"
               align="right"
@@ -193,15 +194,15 @@ function Marketplace() {
             >
               Participants
             </Typography>
-          </div>
-        </div>
-      </div>
-      <div className={classes.cards}>
+          </Box>
+        </Box>
+      </Box>
+      <Box className={classes.cards}>
         <Card className={classes.root}>
           <CardActionArea>
-            <div className={classes.cardicon}>
+            <Box className={classes.cardicon}>
               <Typography variant="h6">Maestro</Typography>
-            </div>
+            </Box>
             <CardMedia
               className={classes.media}
               image={mpImage1}
@@ -223,8 +224,8 @@ function Marketplace() {
               >
                 Lend & borrow for crypto and flat
               </Typography>
-              <div className={classes.cardbottom}>
-                <div className={classes.cardbottomleft}>
+              <Box className={classes.cardbottom}>
+                <Box className={classes.cardbottomleft}>
                   <Typography variant="h6" align="right">
                     $345,679
                   </Typography>
@@ -235,8 +236,8 @@ function Marketplace() {
                   >
                     ADA
                   </Typography>
-                </div>
-                <div className={classes.cardbottomRight}>
+                </Box>
+                <Box className={classes.cardbottomRight}>
                   <Typography
                     variant="caption"
                     align="right"
@@ -244,16 +245,16 @@ function Marketplace() {
                   >
                     Active
                   </Typography>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
         <Card className={classes.root}>
           <CardActionArea>
-            <div className={classes.cardicon}>
+            <Box className={classes.cardicon}>
               <Typography variant="h6">Maestro</Typography>
-            </div>
+            </Box>
             <CardMedia
               className={classes.media}
               image={mpImage2}
@@ -275,8 +276,8 @@ function Marketplace() {
               >
                 Lend & borrow for crypto and flat
               </Typography>
-              <div className={classes.cardbottom}>
-                <div className={classes.cardbottomleft}>
+              <Box className={classes.cardbottom}>
+                <Box className={classes.cardbottomleft}>
                   <Typography variant="h6" align="right">
                     $345,679
                   </Typography>
@@ -287,8 +288,8 @@ function Marketplace() {
                   >
                     ADA
                   </Typography>
-                </div>
-                <div className={classes.cardbottomRight}>
+                </Box>
+                <Box className={classes.cardbottomRight}>
                   <Typography
                     variant="caption"
                     align="right"
@@ -296,16 +297,16 @@ function Marketplace() {
                   >
                     Completed
                   </Typography>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
         <Card className={classes.root}>
           <CardActionArea>
-            <div className={classes.cardicon}>
+            <Box className={classes.cardicon}>
               <Typography variant="h6">Maestro</Typography>
-            </div>
+            </Box>
             <CardMedia
               className={classes.media}
               image={mpImage3}
@@ -327,8 +328,8 @@ function Marketplace() {
               >
                 Lend & borrow for crypto and flat
               </Typography>
-              <div className={classes.cardbottom}>
-                <div className={classes.cardbottomleft}>
+              <Box className={classes.cardbottom}>
+                <Box className={classes.cardbottomleft}>
                   <Typography variant="h6" align="right">
                     $345,679
                   </Typography>
@@ -339,8 +340,8 @@ function Marketplace() {
                   >
                     ADA
                   </Typography>
-                </div>
-                <div className={classes.cardbottomRight}>
+                </Box>
+                <Box className={classes.cardbottomRight}>
                   <Typography
                     variant="caption"
                     align="right"
@@ -348,16 +349,16 @@ function Marketplace() {
                   >
                     Upcoming
                   </Typography>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
         <Card className={classes.root}>
           <CardActionArea>
-            <div className={classes.cardicon}>
+            <Box className={classes.cardicon}>
               <Typography variant="h6">Maestro</Typography>
-            </div>
+            </Box>
             <CardMedia
               className={classes.media}
               image={mpImage4}
@@ -379,8 +380,8 @@ function Marketplace() {
               >
                 Lend & borrow for crypto and flat
               </Typography>
-              <div className={classes.cardbottom}>
-                <div className={classes.cardbottomleft}>
+              <Box className={classes.cardbottom}>
+                <Box className={classes.cardbottomleft}>
                   <Typography variant="h6" align="right">
                     $345,679
                   </Typography>
@@ -391,8 +392,8 @@ function Marketplace() {
                   >
                     ADA
                   </Typography>
-                </div>
-                <div className={classes.cardbottomRight}>
+                </Box>
+                <Box className={classes.cardbottomRight}>
                   <Typography
                     variant="caption"
                     align="right"
@@ -400,16 +401,16 @@ function Marketplace() {
                   >
                     Active
                   </Typography>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
         <Card className={classes.root}>
           <CardActionArea>
-            <div className={classes.cardicon}>
+            <Box className={classes.cardicon}>
               <Typography variant="h6">Maestro</Typography>
-            </div>
+            </Box>
             <CardMedia
               className={classes.media}
               image={mpImage5}
@@ -431,8 +432,8 @@ function Marketplace() {
               >
                 Lend & borrow for crypto and flat
               </Typography>
-              <div className={classes.cardbottom}>
-                <div className={classes.cardbottomleft}>
+              <Box className={classes.cardbottom}>
+                <Box className={classes.cardbottomleft}>
                   <Typography variant="h6" align="right">
                     $345,679
                   </Typography>
@@ -443,8 +444,8 @@ function Marketplace() {
                   >
                     ADA
                   </Typography>
-                </div>
-                <div className={classes.cardbottomRight}>
+                </Box>
+                <Box className={classes.cardbottomRight}>
                   <Typography
                     variant="caption"
                     align="right"
@@ -452,16 +453,16 @@ function Marketplace() {
                   >
                     Upcoming
                   </Typography>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
         <Card className={classes.root}>
           <CardActionArea>
-            <div className={classes.cardicon}>
+            <Box className={classes.cardicon}>
               <Typography variant="h6">Maestro</Typography>
-            </div>
+            </Box>
             <CardMedia
               className={classes.media}
               image={mpImage6}
@@ -483,8 +484,8 @@ function Marketplace() {
               >
                 Lend & borrow for crypto and flat
               </Typography>
-              <div className={classes.cardbottom}>
-                <div className={classes.cardbottomleft}>
+              <Box className={classes.cardbottom}>
+                <Box className={classes.cardbottomleft}>
                   <Typography variant="h6" align="right">
                     $345,679
                   </Typography>
@@ -495,8 +496,8 @@ function Marketplace() {
                   >
                     ADA
                   </Typography>
-                </div>
-                <div className={classes.cardbottomRight}>
+                </Box>
+                <Box className={classes.cardbottomRight}>
                   <Typography
                     variant="caption"
                     align="right"
@@ -504,13 +505,13 @@ function Marketplace() {
                   >
                     Active
                   </Typography>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

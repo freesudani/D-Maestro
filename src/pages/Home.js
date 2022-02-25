@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid, Typography } from "@material-ui/core";
+import { Box, Button, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import FlareIcon from "@material-ui/icons/Flare";
 import Iconsvg from "../images/2844382_ada_cardano_icon.svg";
@@ -73,26 +73,32 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.home}>
+    <Box className={classes.home}>
       <Grid item xs={7}>
         <Typography variant="h2" className={classes.text} gutterBottom>
           pioneering
-          <br /> the future of <span className={classes.textspan}>crypto </span>
-          <span className={classes.textspan1}>crowdfunding</span>
+          <br /> the future of{" "}
+          <Box component="span" m={1} className={classes.textspan}>
+            Crypto
+            <br />
+          </Box>
+          <Box component="span" m={1} className={classes.textspan1}>
+            Crowdfunding
+          </Box>
         </Typography>
-        <div className={classes.ispos}>
-          <div className={classes.ispo}>
+        <Box className={classes.ispos}>
+          <Box className={classes.ispo}>
             <FlareIcon className={classes.flare} />
             <Typography gutterBottom>Wolrd's 1st ISPO platform</Typography>
-          </div>
-          <div className={classes.ispo}>
+          </Box>
+          <Box className={classes.ispo}>
             <FlareIcon className={classes.flare} />
             <Typography gutterBottom>
               Discover, invest and launch ISPOs
             </Typography>
-          </div>
-        </div>
-        <div className={classes.buttons}>
+          </Box>
+        </Box>
+        <Box className={classes.buttons}>
           <Button
             variant="contained"
             color="secondary"
@@ -109,16 +115,16 @@ const Home = () => {
           >
             Create
           </Button>
-          <div className={classes.cardano}>
+          <Box className={classes.cardano}>
             <img src={Iconsvg} alt="icon" className={classes.cardanoicon} />
             <Button size="large" className={classes.cardanobutton}>
               Built on Cardano
             </Button>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </Grid>
       <Grid item xs={5} />
-    </div>
+    </Box>
   );
 };
 

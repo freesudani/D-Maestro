@@ -1,9 +1,9 @@
 import React from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Box } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
 import DropdownMenu from "./DropdownMenu";
 import IconsMenu from "./IconsMenu";
-import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -15,20 +15,30 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
   },
+  logo: {
+    cursor: "pointer",
+  },
 }));
 
 const Navbar = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
   return (
     <AppBar>
       <Toolbar className={classes.toolbar}>
-        <div>
-          <Typography variant="h6">Maestro</Typography>
-        </div>
-        <div className={classes.submenu}>
+        <Box>
+          <Typography
+            variant="h6"
+            onClick={() => navigate("/welcome")}
+            className={classes.logo}
+          >
+            Maestro
+          </Typography>
+        </Box>
+        <Box className={classes.submenu}>
           <DropdownMenu />
           <IconsMenu />
-        </div>
+        </Box>
       </Toolbar>
     </AppBar>
   );

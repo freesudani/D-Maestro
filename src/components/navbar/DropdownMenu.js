@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core";
+import React, { useContext } from "react";
+import { CryptoContext } from "../../store/crypto-context";
+import { makeStyles, Box } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   dropmenu: {
@@ -15,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
 
 const StyledMenu = withStyles({
   paper: {
-    border: "1px solid #d3d4d5",
+    border: "1px solid #7986cb",
+    background: "#7986cb",
+    padding: "0.5rem",
+    borderRadius: "5px",
   },
 })((props) => (
   <Menu
@@ -45,123 +50,118 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 const DropdownMenu = () => {
-  const [anchorEl, setAnchorEl] = useState(false);
-  const [anchorE2, setAnchorE2] = useState(false);
-  const [anchorE3, setAnchorE3] = useState(false);
-
-  const handleClick1 = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose1 = () => {
-    setAnchorEl(false);
-  };
-
-  const handleClick2 = (event) => {
-    setAnchorE2(event.currentTarget);
-  };
-
-  const handleClose2 = () => {
-    setAnchorE2(false);
-  };
-
-  const handleClick3 = (event) => {
-    setAnchorE3(event.currentTarget);
-  };
-
-  const handleClose3 = () => {
-    setAnchorE3(false);
-  };
-
+  const cryCtx = useContext(CryptoContext);
+  const navigate = useNavigate();
   const classes = useStyles();
 
   return (
-    <div className={classes.dropmenu}>
-      <div>
+    <Box className={classes.dropmenu}>
+      <Box>
         <Button
           aria-controls="customized-menu"
           aria-haspopup="true"
           variant="contained"
           color="primary"
-          onClick={handleClick1}
+          onClick={cryCtx.click1}
           disableElevation
         >
           Products
         </Button>
         <StyledMenu
           id="customized-menu"
-          anchorEl={anchorEl}
+          anchorEl={cryCtx.El}
           keepMounted
-          open={anchorEl}
-          onClose={handleClose1}
+          open={cryCtx.El}
+          onClose={cryCtx.close1}
         >
           <StyledMenuItem>
-            <ListItemText primary="Marketplace" />
+            <ListItemText
+              primary="Marketplace"
+              onClick={() => navigate("/marketplace")}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Tools & Services" />
+            <ListItemText
+              primary="Tools & Services"
+              onClick={() => navigate("/tools")}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Crypto index" />
+            <ListItemText
+              primary="Crypto index"
+              onClick={() => navigate("/index")}
+            />
           </StyledMenuItem>
         </StyledMenu>
-      </div>
-      <div>
+      </Box>
+      <Box>
         <Button
           aria-controls="customized-menu"
           aria-haspopup="true"
           variant="contained"
           color="primary"
-          onClick={handleClick2}
+          onClick={cryCtx.click2}
           disableElevation
         >
           Team
         </Button>
         <StyledMenu
           id="customized-menu"
-          anchorEl={anchorE2}
+          anchorEl={cryCtx.E2}
           keepMounted
-          open={anchorE2}
-          onClose={handleClose2}
+          open={cryCtx.E2}
+          onClose={cryCtx.close2}
         >
           <StyledMenuItem>
-            <ListItemText primary="Accounting" />
+            <ListItemText
+              primary="Accounting"
+              onClick={() => navigate("/accounting")}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Brokers" />
+            <ListItemText
+              primary="Broker"
+              onClick={() => navigate("/broker")}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Legal" />
+            <ListItemText primary="Legal" onClick={() => navigate("/legal")} />
           </StyledMenuItem>
         </StyledMenu>
-      </div>
-      <div>
+      </Box>
+      <Box>
         <Button
           aria-controls="customized-menu"
           aria-haspopup="true"
           variant="contained"
           color="primary"
-          onClick={handleClick3}
+          onClick={cryCtx.click3}
           disableElevation
         >
           Contact Us
         </Button>
         <StyledMenu
           id="customized-menu"
-          anchorEl={anchorE3}
+          anchorEl={cryCtx.E3}
           keepMounted
-          open={anchorE3}
-          onClose={handleClose3}
+          open={cryCtx.E3}
+          onClose={cryCtx.close3}
         >
           <StyledMenuItem>
-            <ListItemText primary="Locations" />
+            <ListItemText
+              primary="Branch Locations"
+              onClick={() => navigate("/locations")}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Email Us" />
+            <ListItemText
+              primary="Social Media"
+              onClick={() => navigate("/socials")}
+            />
           </StyledMenuItem>
         </StyledMenu>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

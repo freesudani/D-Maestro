@@ -2,7 +2,7 @@ import React from "react";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import EmailIcon from "@material-ui/icons/Email";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import { makeStyles, Paper, Typography } from "@material-ui/core";
+import { makeStyles, Paper, Typography, Box } from "@material-ui/core";
 import bgImage from "../images/pexels-revac-films&photography-205333.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
 const Socials = () => {
   const classes = useStyles();
   return (
-    <div className={classes.social}>
+    <Box className={classes.social}>
       <Typography
         className={classes.header}
         variant="h6"
@@ -118,7 +118,7 @@ const Socials = () => {
       >
         Follow our social media channels and join the community!
       </Typography>
-      <div className={classes.papers}>
+      <Box className={classes.papers}>
         <Paper elevation={0} className={classes.linkdinpaper}>
           <LinkedInIcon className={classes.linkdinIcon} />
         </Paper>
@@ -128,7 +128,7 @@ const Socials = () => {
         <Paper elevation={0} className={classes.twiterpaper}>
           <TwitterIcon className={classes.twitterIcon} />
         </Paper>
-      </div>
+      </Box>
       <Typography
         className={classes.msgus}
         variant="body2"
@@ -136,9 +136,11 @@ const Socials = () => {
         gutterBottom
       >
         Message us :{" "}
-        <span className={classes.msgusspan}>infor@Meastro.com</span>
+        <Box component="span" className={classes.msgusspan}>
+          infor@Meastro.com
+        </Box>
       </Typography>
-    </div>
+    </Box>
   );
 };
 
