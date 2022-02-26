@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { Box, Button, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import FlareIcon from "@material-ui/icons/Flare";
 import Iconsvg from "../images/2844382_ada_cardano_icon.svg";
 import News from "../components/News";
 import { Oval } from "react-loader-spinner";
-import dateFormat from "dateformat";
+import { NewsContext } from "../store/news-context";
 
 const useStyles = makeStyles((theme) => ({
   home: {
@@ -89,35 +89,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
-  const [article, setArticle] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const classes = useStyles();
-
-  const fetchNews = async () => {
-    setIsLoading(true);
-    const response = await fetch(
-      "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=93d4bda17f5e4e0282e0b4dfc5195a05"
-    );
-    const data = await response.json();
-    console.log(data);
-    const newsArticles = data.articles.map((article) => {
-      const publishedDate = article.date;
-      return {
-        id: article.id,
-        title: article.title,
-        image: article.urlToImage,
-        author: article.author,
-        content: article.content,
-        Date: dateFormat(publishedDate, "mmmm dS, yyyy"),
-      };
-    });
-    console.log(newsArticles);
-    setArticle(newsArticles);
-    setIsLoading(false);
-  };
+  const ctx = useContext(NewsContext);
 
   useEffect(() => {
-    fetchNews();
+    ctx.getnews();
   }, []);
 
   return (
@@ -172,7 +148,7 @@ const Home = () => {
         </Box>
       </Grid>
       <Grid item xs={5} className={classes.news}>
-        {isLoading ? (
+        {ctx.iL ? (
           <Box className={classes.loader}>
             <Oval
               height={160}
@@ -182,7 +158,7 @@ const Home = () => {
             />
           </Box>
         ) : (
-          <News article={article} />
+          <News article={ctx.art} />
         )}
       </Grid>
     </Box>
