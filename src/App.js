@@ -7,6 +7,7 @@ import ToolsServices from "./pages/ToolsServices";
 import Marketplace from "./pages/Marketplace";
 import NotFound from "./pages/NotFound";
 import CryptoContextProvider from "./store/crypto-context";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   return (

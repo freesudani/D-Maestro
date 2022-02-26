@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import FlareIcon from "@material-ui/icons/Flare";
 import Iconsvg from "../images/2844382_ada_cardano_icon.svg";
+import News from "../components/News";
+import { Oval } from "react-loader-spinner";
+import dateFormat from "dateformat";
 
 const useStyles = makeStyles((theme) => ({
   home: {
+    display: "flex",
     paddingTop: "8rem",
     paddingLeft: "2rem",
+    paddingRight: "2rem",
     width: "100vw",
     height: "100vh",
     backgroundColor: theme.palette.primary.dark,
@@ -67,10 +72,53 @@ const useStyles = makeStyles((theme) => ({
   cardanobutton: {
     color: "white",
   },
+  news: {
+    height: "80%",
+    background: "rgba(0, 0, 0, 0.85)",
+    borderRadius: "8px",
+    border: "1px solid #fff",
+    overflow: "scroll",
+    overflowX: "hidden",
+  },
+  loader: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "7.5rem",
+  },
 }));
 
 const Home = () => {
+  const [article, setArticle] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const classes = useStyles();
+
+  const fetchNews = async () => {
+    setIsLoading(true);
+    const response = await fetch(
+      "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=93d4bda17f5e4e0282e0b4dfc5195a05"
+    );
+    const data = await response.json();
+    console.log(data);
+    const newsArticles = data.articles.map((article) => {
+      const publishedDate = article.date;
+      return {
+        id: article.id,
+        title: article.title,
+        image: article.urlToImage,
+        author: article.author,
+        content: article.content,
+        Date: dateFormat(publishedDate, "mmmm dS, yyyy"),
+      };
+    });
+    console.log(newsArticles);
+    setArticle(newsArticles);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
 
   return (
     <Box className={classes.home}>
@@ -123,7 +171,20 @@ const Home = () => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={5} />
+      <Grid item xs={5} className={classes.news}>
+        {isLoading ? (
+          <Box className={classes.loader}>
+            <Oval
+              height={160}
+              width={160}
+              color="#3f51b5"
+              secondaryColor="#fff"
+            />
+          </Box>
+        ) : (
+          <News article={article} />
+        )}
+      </Grid>
     </Box>
   );
 };
