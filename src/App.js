@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import CryptoContextProvider from "./store/crypto-context";
 import NewsContextProvider from "./store/news-context";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Locations from "./pages/Locations";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/tools" element={<ToolsServices />} />
             <Route path="/socials" element={<Socials />} />
+            <Route path="/locations" element={<Locations />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </CryptoContextProvider>
