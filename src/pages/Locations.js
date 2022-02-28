@@ -5,6 +5,7 @@ import {
   FormControl,
   InputLabel,
   Select,
+  Typography,
 } from "@material-ui/core";
 
 import NorthBranch from "../components/branches/NorthBranch";
@@ -18,60 +19,82 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "6rem",
     paddingLeft: "3rem",
     paddingRight: "3rem",
-    height: "190vh",
+    height: "205vh",
     background: theme.palette.primary.dark,
+  },
+  header: {
+    color: theme.palette.error.dark,
+    textTransform: "uppercase",
+  },
+
+  header2: {
+    color: "white",
+    textTransform: "capitalize",
+    fontWeight: "bold",
   },
 
   selectbranch: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    border: `1px solid ${theme.palette.secondary.main}`,
-    borderRadius: "5px",
-    margin: "auto 32rem",
-    background: "white",
   },
 
   formControl: {
-    margin: theme.spacing(0.5),
-    padding: theme.spacing(1.5),
     width: 200,
+  },
+
+  inputlabel: {
     color: "white",
+  },
+  inputlabel2: {
+    color: "black",
   },
 }));
 
 const Locations = () => {
-  /*  const [state, setState] = useState({
-    location: "",
-    name: "hai",
-  }); */
-
   const [value, setValue] = useState("10");
 
   const classes = useStyles();
 
-  /* const handleChange = (event) => {
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  }; */
-
   return (
     <Box className={classes.location}>
+      <Typography
+        className={classes.header}
+        variant="h6"
+        align="center"
+        color="red"
+        gutterBottom
+      >
+        • Branches •
+      </Typography>
+      <Typography
+        className={classes.header2}
+        variant="h2"
+        align="center"
+        gutterBottom
+      >
+        We welcome you
+      </Typography>
       <Box className={classes.selectbranch}>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="branch">Branch Name</InputLabel>
+          <InputLabel htmlFor="branch" className={classes.inputlabel}>
+            Select Branch Name
+          </InputLabel>
           <Select
             native
             value={value}
             onChange={(event) => setValue(event.target.value)}
+            className={classes.inputlabel}
           >
-            <option aria-label="None" value="" />
-            <option value={"10"}>North</option>
-            <option value={"20"}>East</option>
-            <option value={"30"}>West</option>
+            <option value={"10"} className={classes.inputlabel2}>
+              North
+            </option>
+            <option value={"20"} className={classes.inputlabel2}>
+              East
+            </option>
+            <option value={"30"} className={classes.inputlabel2}>
+              West
+            </option>
           </Select>
         </FormControl>
       </Box>
