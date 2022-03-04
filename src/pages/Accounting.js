@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
   accountingstaff: {
     border: `2px solid ${theme.palette.error.dark}`,
-    background: theme.palette.grey[500],
+    background: theme.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
     width: "50rem",
     marginTop: "4.8rem",

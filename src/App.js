@@ -11,6 +11,7 @@ import CryptoIndex from "./pages/CryptoIndex";
 import AllContextProviders from "./store/AllContextProviders";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Accounting from "./pages/Accounting";
+import Broker from "./pages/Broker";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/locations" element={<Locations />} />
           <Route path="/index" element={<CryptoIndex />} />
           <Route path="/accounting" element={<Accounting />} />
+          <Route path="/broker" element={<Broker />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AllContextProviders>
