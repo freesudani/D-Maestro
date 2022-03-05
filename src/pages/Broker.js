@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  makeStyles,
-  Typography,
-  Avatar,
-  Grid,
-  Button,
-} from "@material-ui/core";
+import { Box, makeStyles, Typography, Button } from "@material-ui/core";
 import brokerImage from "../images/ruben-sukatendel-VsPGJqafmTk-unsplash.jpg";
 import personimage from "../images/17.jpg";
 import FormatQuoteSharpIcon from "@material-ui/icons/FormatQuoteSharp";
