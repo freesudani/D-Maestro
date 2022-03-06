@@ -1,57 +1,17 @@
 import React, { useContext } from "react";
 import { CryptoContext } from "../../store/crypto-context";
-import { makeStyles, Box } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import { useNavigate } from "react-router-dom";
+import { Button, ListItemText, makeStyles, Box } from "@material-ui/core";
+import { StyledMenu, StyledMenuItem } from "./StyledMenu";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   dropmenu: {
     display: "flex",
     marginRight: "5rem",
   },
 }));
 
-const StyledMenu = withStyles({
-  paper: {
-    border: "1px solid #7986cb",
-    background: "#7986cb",
-    padding: "0.5rem",
-    borderRadius: "5px",
-  },
-})((props) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "center",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "center",
-    }}
-    {...props}
-  />
-));
-
-const StyledMenuItem = withStyles((theme) => ({
-  root: {
-    "&:focus": {
-      backgroundColor: theme.palette.primary.main,
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.white,
-      },
-    },
-  },
-}))(MenuItem);
-
 const DropdownMenu = () => {
   const cryCtx = useContext(CryptoContext);
-  const navigate = useNavigate();
   const classes = useStyles();
 
   return (
@@ -75,22 +35,13 @@ const DropdownMenu = () => {
           onClose={cryCtx.close1}
         >
           <StyledMenuItem>
-            <ListItemText
-              primary="Marketplace"
-              onClick={() => navigate("/marketplace")}
-            />
+            <ListItemText primary="Marketplace" onClick={cryCtx.mpclose} />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText
-              primary="Tools & Services"
-              onClick={() => navigate("/tools")}
-            />
+            <ListItemText primary="Tools & Services" onClick={cryCtx.tsclose} />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText
-              primary="Crypto index"
-              onClick={() => navigate("/index")}
-            />
+            <ListItemText primary="Crypto index" onClick={cryCtx.ciclose} />
           </StyledMenuItem>
         </StyledMenu>
       </Box>
@@ -113,19 +64,13 @@ const DropdownMenu = () => {
           onClose={cryCtx.close2}
         >
           <StyledMenuItem>
-            <ListItemText
-              primary="Accounting"
-              onClick={() => navigate("/accounting")}
-            />
+            <ListItemText primary="Accounting" onClick={cryCtx.aclose} />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText
-              primary="Broker"
-              onClick={() => navigate("/broker")}
-            />
+            <ListItemText primary="Broker" onClick={cryCtx.bclose} />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Legal" onClick={() => navigate("/legal")} />
+            <ListItemText primary="Legal" onClick={cryCtx.lclose} />
           </StyledMenuItem>
         </StyledMenu>
       </Box>
@@ -148,16 +93,10 @@ const DropdownMenu = () => {
           onClose={cryCtx.close3}
         >
           <StyledMenuItem>
-            <ListItemText
-              primary="Branch Locations"
-              onClick={() => navigate("/locations")}
-            />
+            <ListItemText primary="Branch Locations" onClick={cryCtx.blclose} />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText
-              primary="Social Media"
-              onClick={() => navigate("/socials")}
-            />
+            <ListItemText primary="Social Media" onClick={cryCtx.smclose} />
           </StyledMenuItem>
         </StyledMenu>
       </Box>
