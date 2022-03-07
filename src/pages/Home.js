@@ -1,18 +1,17 @@
 import React, { useEffect, useContext } from "react";
-import { Box, Button, Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
+import News from "../components/News";
+import { Box, Button, Grid, Typography, makeStyles } from "@material-ui/core";
+import { NewsContext } from "../store/news-context";
+import { Oval } from "react-loader-spinner";
 import FlareIcon from "@material-ui/icons/Flare";
 import Iconsvg from "../images/2844382_ada_cardano_icon.svg";
-import News from "../components/News";
-import { Oval } from "react-loader-spinner";
-import { NewsContext } from "../store/news-context";
 
 const useStyles = makeStyles((theme) => ({
   home: {
     display: "flex",
     paddingTop: "8rem",
-    paddingLeft: "2rem",
-    paddingRight: "2rem",
+    /* paddingLeft: "2rem",
+    paddingRight: "2rem", */
     width: "100vw",
     height: "100vh",
     backgroundColor: theme.palette.primary.dark,
@@ -97,8 +96,9 @@ const Home = () => {
   }, []);
 
   return (
-    <Box className={classes.home}>
-      <Grid item xs={7}>
+    <Grid container xs={12} className={classes.home}>
+      <Grid item xs={1} />
+      <Grid item xs={6}>
         <Typography variant="h2" className={classes.text} gutterBottom>
           pioneering
           <br /> the future of{" "}
@@ -147,7 +147,7 @@ const Home = () => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={5} className={classes.news}>
+      <Grid item xs={4} className={classes.news}>
         {ctx.iL ? (
           <Box className={classes.loader}>
             <Oval
@@ -161,7 +161,8 @@ const Home = () => {
           <News article={ctx.art} />
         )}
       </Grid>
-    </Box>
+      <Grid item xs={1} />
+    </Grid>
   );
 };
 

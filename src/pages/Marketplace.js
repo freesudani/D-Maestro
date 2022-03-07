@@ -7,6 +7,7 @@ import {
   CardContent,
   CardMedia,
   Box,
+  Grid,
 } from "@material-ui/core";
 
 import mpImage1 from "../images/pexels-fiona-art-4725323.jpg";
@@ -18,11 +19,9 @@ import mpImage6 from "../images/pexels-walid-ahmad-769377.jpg";
 
 const useStyles = makeStyles((theme) => ({
   market: {
-    paddingTop: "6rem",
+    padding: "6rem 3rem",
     background: theme.palette.primary.dark,
     height: "135vh",
-    paddingLeft: "3rem",
-    paddingRight: "3rem",
   },
   top: {
     display: "flex",
@@ -63,17 +62,13 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   cards: {
-    display: "grid",
-    gridTemplateRows: "1fr 1fr",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: "10%",
-    marginTop: "1rem",
+    margin: "1rem auto auto 2rem",
   },
   root: {
+    position: "relative",
     height: "15rem",
     maxWidth: 275,
     background: theme.palette.primary.main,
-    position: "relative",
   },
   cardicon: {
     color: "white",
@@ -98,11 +93,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  bottomstats: {},
+
   cardbottomleft: {
     display: "flex",
     alignItems: "center",
   },
+
   bottomstats2: { color: "#9575cd", fontWeight: "bold" },
   cardbottomRight: {
     background: "black",
@@ -197,320 +193,332 @@ function Marketplace() {
           </Box>
         </Box>
       </Box>
-      <Box className={classes.cards}>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <Box className={classes.cardicon}>
-              <Typography variant="h6">Maestro</Typography>
-            </Box>
-            <CardMedia
-              className={classes.media}
-              image={mpImage1}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                MELD
-              </Typography>
-              <Typography
-                className={classes.cardheader2}
-                variant="body2"
-                align="left"
-                gutterBottom
-              >
-                Lend & borrow for crypto and flat
-              </Typography>
-              <Box className={classes.cardbottom}>
-                <Box className={classes.cardbottomleft}>
-                  <Typography variant="h6" align="right">
-                    $345,679
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    className={classes.bottomstats2}
-                  >
-                    ADA
-                  </Typography>
-                </Box>
-                <Box className={classes.cardbottomRight}>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    style={{ color: "#90caf9" }}
-                  >
-                    Active
-                  </Typography>
-                </Box>
+      <Grid container spacing={5} xs={12} className={classes.cards}>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <Box className={classes.cardicon}>
+                <Typography variant="h6">Maestro</Typography>
               </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <Box className={classes.cardicon}>
-              <Typography variant="h6">Maestro</Typography>
-            </Box>
-            <CardMedia
-              className={classes.media}
-              image={mpImage2}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                MELD
-              </Typography>
-              <Typography
-                className={classes.cardheader2}
-                variant="body2"
-                align="left"
-                gutterBottom
-              >
-                Lend & borrow for crypto and flat
-              </Typography>
-              <Box className={classes.cardbottom}>
-                <Box className={classes.cardbottomleft}>
-                  <Typography variant="h6" align="right">
-                    $345,679
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    className={classes.bottomstats2}
-                  >
-                    ADA
-                  </Typography>
+              <CardMedia
+                className={classes.media}
+                image={mpImage1}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  MELD
+                </Typography>
+                <Typography
+                  className={classes.cardheader2}
+                  variant="body2"
+                  align="left"
+                  gutterBottom
+                >
+                  Lend & borrow for crypto and flat
+                </Typography>
+                <Box className={classes.cardbottom}>
+                  <Box className={classes.cardbottomleft}>
+                    <Typography variant="h6" align="right">
+                      $345,679
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      className={classes.bottomstats2}
+                    >
+                      ADA
+                    </Typography>
+                  </Box>
+                  <Box className={classes.cardbottomRight}>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      style={{ color: "#90caf9" }}
+                    >
+                      Active
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box className={classes.cardbottomRight}>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    style={{ color: "#1976d2" }}
-                  >
-                    Completed
-                  </Typography>
-                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <Box className={classes.cardicon}>
+                <Typography variant="h6">Maestro</Typography>
               </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <Box className={classes.cardicon}>
-              <Typography variant="h6">Maestro</Typography>
-            </Box>
-            <CardMedia
-              className={classes.media}
-              image={mpImage3}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                MELD
-              </Typography>
-              <Typography
-                className={classes.cardheader2}
-                variant="body2"
-                align="left"
-                gutterBottom
-              >
-                Lend & borrow for crypto and flat
-              </Typography>
-              <Box className={classes.cardbottom}>
-                <Box className={classes.cardbottomleft}>
-                  <Typography variant="h6" align="right">
-                    $345,679
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    className={classes.bottomstats2}
-                  >
-                    ADA
-                  </Typography>
+              <CardMedia
+                className={classes.media}
+                image={mpImage2}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  MELD
+                </Typography>
+                <Typography
+                  className={classes.cardheader2}
+                  variant="body2"
+                  align="left"
+                  gutterBottom
+                >
+                  Lend & borrow for crypto and flat
+                </Typography>
+                <Box className={classes.cardbottom}>
+                  <Box className={classes.cardbottomleft}>
+                    <Typography variant="h6" align="right">
+                      $345,679
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      className={classes.bottomstats2}
+                    >
+                      ADA
+                    </Typography>
+                  </Box>
+                  <Box className={classes.cardbottomRight}>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      style={{ color: "#1976d2" }}
+                    >
+                      Completed
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box className={classes.cardbottomRight}>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    style={{ color: "#ff8f00" }}
-                  >
-                    Upcoming
-                  </Typography>
-                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <Box className={classes.cardicon}>
+                <Typography variant="h6">Maestro</Typography>
               </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <Box className={classes.cardicon}>
-              <Typography variant="h6">Maestro</Typography>
-            </Box>
-            <CardMedia
-              className={classes.media}
-              image={mpImage4}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                MELD
-              </Typography>
-              <Typography
-                className={classes.cardheader2}
-                variant="body2"
-                align="left"
-                gutterBottom
-              >
-                Lend & borrow for crypto and flat
-              </Typography>
-              <Box className={classes.cardbottom}>
-                <Box className={classes.cardbottomleft}>
-                  <Typography variant="h6" align="right">
-                    $345,679
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    className={classes.bottomstats2}
-                  >
-                    ADA
-                  </Typography>
+              <CardMedia
+                className={classes.media}
+                image={mpImage3}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  MELD
+                </Typography>
+                <Typography
+                  className={classes.cardheader2}
+                  variant="body2"
+                  align="left"
+                  gutterBottom
+                >
+                  Lend & borrow for crypto and flat
+                </Typography>
+                <Box className={classes.cardbottom}>
+                  <Box className={classes.cardbottomleft}>
+                    <Typography variant="h6" align="right">
+                      $345,679
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      className={classes.bottomstats2}
+                    >
+                      ADA
+                    </Typography>
+                  </Box>
+                  <Box className={classes.cardbottomRight}>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      style={{ color: "#ff8f00" }}
+                    >
+                      Upcoming
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box className={classes.cardbottomRight}>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    style={{ color: "#90caf9" }}
-                  >
-                    Active
-                  </Typography>
-                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <Box className={classes.cardicon}>
+                <Typography variant="h6">Maestro</Typography>
               </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <Box className={classes.cardicon}>
-              <Typography variant="h6">Maestro</Typography>
-            </Box>
-            <CardMedia
-              className={classes.media}
-              image={mpImage5}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                MELD
-              </Typography>
-              <Typography
-                className={classes.cardheader2}
-                variant="body2"
-                align="left"
-                gutterBottom
-              >
-                Lend & borrow for crypto and flat
-              </Typography>
-              <Box className={classes.cardbottom}>
-                <Box className={classes.cardbottomleft}>
-                  <Typography variant="h6" align="right">
-                    $345,679
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    className={classes.bottomstats2}
-                  >
-                    ADA
-                  </Typography>
+              <CardMedia
+                className={classes.media}
+                image={mpImage4}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  MELD
+                </Typography>
+                <Typography
+                  className={classes.cardheader2}
+                  variant="body2"
+                  align="left"
+                  gutterBottom
+                >
+                  Lend & borrow for crypto and flat
+                </Typography>
+                <Box className={classes.cardbottom}>
+                  <Box className={classes.cardbottomleft}>
+                    <Typography variant="h6" align="right">
+                      $345,679
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      className={classes.bottomstats2}
+                    >
+                      ADA
+                    </Typography>
+                  </Box>
+                  <Box className={classes.cardbottomRight}>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      style={{ color: "#90caf9" }}
+                    >
+                      Active
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box className={classes.cardbottomRight}>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    style={{ color: "#ff8f00" }}
-                  >
-                    Upcoming
-                  </Typography>
-                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <Box className={classes.cardicon}>
+                <Typography variant="h6">Maestro</Typography>
               </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <Box className={classes.cardicon}>
-              <Typography variant="h6">Maestro</Typography>
-            </Box>
-            <CardMedia
-              className={classes.media}
-              image={mpImage6}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                MELD
-              </Typography>
-              <Typography
-                className={classes.cardheader2}
-                variant="body2"
-                align="left"
-                gutterBottom
-              >
-                Lend & borrow for crypto and flat
-              </Typography>
-              <Box className={classes.cardbottom}>
-                <Box className={classes.cardbottomleft}>
-                  <Typography variant="h6" align="right">
-                    $345,679
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    className={classes.bottomstats2}
-                  >
-                    ADA
-                  </Typography>
+              <CardMedia
+                className={classes.media}
+                image={mpImage5}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  MELD
+                </Typography>
+                <Typography
+                  className={classes.cardheader2}
+                  variant="body2"
+                  align="left"
+                  gutterBottom
+                >
+                  Lend & borrow for crypto and flat
+                </Typography>
+                <Box className={classes.cardbottom}>
+                  <Box className={classes.cardbottomleft}>
+                    <Typography variant="h6" align="right">
+                      $345,679
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      className={classes.bottomstats2}
+                    >
+                      ADA
+                    </Typography>
+                  </Box>
+                  <Box className={classes.cardbottomRight}>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      style={{ color: "#ff8f00" }}
+                    >
+                      Upcoming
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box className={classes.cardbottomRight}>
-                  <Typography
-                    variant="caption"
-                    align="right"
-                    style={{ color: "#90caf9" }}
-                  >
-                    Active
-                  </Typography>
-                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <Box className={classes.cardicon}>
+                <Typography variant="h6">Maestro</Typography>
               </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Box>
+              <CardMedia
+                className={classes.media}
+                image={mpImage6}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  MELD
+                </Typography>
+                <Typography
+                  className={classes.cardheader2}
+                  variant="body2"
+                  align="left"
+                  gutterBottom
+                >
+                  Lend & borrow for crypto and flat
+                </Typography>
+                <Box className={classes.cardbottom}>
+                  <Box className={classes.cardbottomleft}>
+                    <Typography variant="h6" align="right">
+                      $345,679
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      className={classes.bottomstats2}
+                    >
+                      ADA
+                    </Typography>
+                  </Box>
+                  <Box className={classes.cardbottomRight}>
+                    <Typography
+                      variant="caption"
+                      align="right"
+                      style={{ color: "#90caf9" }}
+                    >
+                      Active
+                    </Typography>
+                  </Box>
+                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
     </Box>
   );
 }

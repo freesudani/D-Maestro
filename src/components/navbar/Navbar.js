@@ -30,7 +30,7 @@ const Navbar = () => {
   const classes = useStyles();
 
   return (
-    <AppBar>
+    <AppBar style={{ width: "100vw" }}>
       <Toolbar className={classes.toolbar}>
         <Box>
           <Typography

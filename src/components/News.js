@@ -1,8 +1,7 @@
-import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { Box, Typography, makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   news: {
     padding: "0.8rem",
     marginBottom: "0.5rem",
@@ -17,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
     alignContent: "start",
   },
   image: {
-    width: "17rem",
-    height: "8rem",
-    marginRight: "0.4rem",
+    width: "15rem",
+    height: "10rem",
+    marginRight: "0.2rem",
   },
   title: {
-    textAlign: "center",
+    textAlign: "left",
   },
   details: {
     textAlign: "justify",
@@ -45,11 +44,11 @@ const News = (props) => {
         </Typography>
         <Box className={classes.newshead}>
           <img src={artc.image} alt={artc.title} className={classes.image} />
-          <Typography variant="h5" className={classes.title}>
+          <Typography variant="body1" className={classes.title}>
             {artc.title}
           </Typography>
         </Box>
-        <Typography variant="body1" className={classes.details}>
+        <Typography variant="caption" className={classes.details}>
           {artc.content}
         </Typography>
       </Box>

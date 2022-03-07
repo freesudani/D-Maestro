@@ -1,10 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { TextField, Typography, Button } from "@material-ui/core/";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
-import { TextField, Typography, Button } from "@material-ui/core/";
 import PropTypes from "prop-types";
-import { useSpring, animated } from "react-spring/web.cjs"; // web.cjs is required for IE 11 support
+import { useSpring, animated } from "react-spring/web.cjs";
 
 const useStyles = makeStyles((theme) => ({
   modal: {

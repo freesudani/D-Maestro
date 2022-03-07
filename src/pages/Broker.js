@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "6rem",
     paddingLeft: "3rem",
     paddingRight: "3rem",
-    height: "135vh",
+    height: "120vh",
     background: theme.palette.primary.dark,
   },
 
@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
   },
   image: {
-    width: "75rem",
-    height: "35rem",
-    marginLeft: "1.5rem",
+    width: "65rem",
+    height: "30rem",
+    marginLeft: "7rem",
     filter: "brightness(40%)",
   },
 

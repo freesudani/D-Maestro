@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   lawyerparag: {
     color: "white",
     lineHeight: "3.5",
-    fontFamily: "Comforter Brush" /* cursive; */,
+    fontFamily: "Comforter Brush",
   },
 
   lawyerphoto: {

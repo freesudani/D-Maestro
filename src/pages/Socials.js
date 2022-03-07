@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CryptoContext } from "../store/crypto-context";
+import { makeStyles, Paper, Typography, Box } from "@material-ui/core";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import EmailIcon from "@material-ui/icons/Email";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import { makeStyles, Paper, Typography, Box } from "@material-ui/core";
 import bgImage from "../images/pexels-revac-films&photography-205333.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     height: "8rem",
     margin: "2.8rem 3rem",
     transform: "rotate(-3deg)",
+    cursor: "pointer",
+    "&:hover": {
+      background: theme.palette.primary.dark,
+    },
   },
 
   linkdinIcon: {
@@ -58,6 +63,10 @@ const useStyles = makeStyles((theme) => ({
     height: "8rem",
     margin: "2.8rem 3rem",
     transform: "rotate(3deg)",
+    cursor: "pointer",
+    "&:hover": {
+      background: theme.palette.primary.dark,
+    },
   },
 
   twitterIcon: {
@@ -73,6 +82,10 @@ const useStyles = makeStyles((theme) => ({
     width: "8rem",
     height: "8rem",
     margin: "2rem 3rem",
+    cursor: "pointer",
+    "&:hover": {
+      background: theme.palette.primary.dark,
+    },
   },
 
   emailIcon: {
@@ -86,11 +99,14 @@ const useStyles = makeStyles((theme) => ({
   },
   msgusspan: {
     fontWeight: "bold",
+    cursor: "pointer",
   },
 }));
 
 const Socials = () => {
+  const cryCtx = useContext(CryptoContext);
   const classes = useStyles();
+
   return (
     <Box className={classes.social}>
       <Typography
@@ -119,13 +135,25 @@ const Socials = () => {
         Follow our social media channels and join the community!
       </Typography>
       <Box className={classes.papers}>
-        <Paper elevation={0} className={classes.linkdinpaper}>
+        <Paper
+          elevation={0}
+          className={classes.linkdinpaper}
+          onClick={cryCtx.ldopen}
+        >
           <LinkedInIcon className={classes.linkdinIcon} />
         </Paper>
-        <Paper elevation={0} className={classes.emailpaper}>
+        <Paper
+          elevation={0}
+          className={classes.emailpaper}
+          onClick={cryCtx.emopen}
+        >
           <EmailIcon className={classes.emailIcon} />
         </Paper>
-        <Paper elevation={0} className={classes.twiterpaper}>
+        <Paper
+          elevation={0}
+          className={classes.twiterpaper}
+          onClick={cryCtx.twopen}
+        >
           <TwitterIcon className={classes.twitterIcon} />
         </Paper>
       </Box>
@@ -136,7 +164,11 @@ const Socials = () => {
         gutterBottom
       >
         Message us :{" "}
-        <Box component="span" className={classes.msgusspan}>
+        <Box
+          component="span"
+          className={classes.msgusspan}
+          onClick={cryCtx.emopen}
+        >
           infor@Meastro.com
         </Box>
       </Typography>

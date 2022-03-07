@@ -14,6 +14,7 @@ import {
   ListItemIcon,
   ListItemText,
   Box,
+  Grid,
 } from "@material-ui/core";
 import StarRateIcon from "@material-ui/icons/StarRate";
 
@@ -21,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
   tools: {
     paddingTop: "6rem",
     background: theme.palette.primary.dark,
-    height: "100vh",
+    height: "105vh",
+    width: "100vw",
   },
   header: {
     color: theme.palette.error.dark,
@@ -36,9 +38,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   cards: {
-    display: "flex",
-    justifyContent: "space-around",
-    marginTop: "2rem",
+    margin: "2rem auto auto 2rem",
     position: "relative",
   },
   popular: {
@@ -112,137 +112,149 @@ const ToolsServices = () => {
       >
         Enterprise-grade infrastructure & developer API to power cardano
       </Typography>
-      <Box className={classes.cards}>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={tsImage1}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                Stake Pool
+      <Grid
+        container
+        spacing={4}
+        xs={12}
+        justifyContent="center"
+        className={classes.cards}
+      >
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={tsImage1}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  Stake Pool
+                </Typography>
+                <List
+                  component="ul"
+                  aria-label="main mailbox folders"
+                  disablePadding
+                >
+                  <ListItem className={classes.cardlists}>
+                    <ListItemIcon>
+                      <StarRateIcon className={classes.cardicon} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Deployment & Managment"
+                      className={classes.cardlist}
+                    />
+                  </ListItem>
+                  <ListItem className={classes.cardlists}>
+                    <ListItemIcon>
+                      <StarRateIcon className={classes.cardicon} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Performance dashboard"
+                      className={classes.cardlist}
+                    />
+                  </ListItem>
+                </List>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root} style={{ background: "#3f51b5" }}>
+            <CardActionArea>
+              <Typography variant="body2" className={classes.popular}>
+                POPULAR
               </Typography>
-              <List
-                component="ul"
-                aria-label="main mailbox folders"
-                disablePadding
-              >
-                <ListItem className={classes.cardlists}>
-                  <ListItemIcon>
-                    <StarRateIcon className={classes.cardicon} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Deployment & Managment"
-                    className={classes.cardlist}
-                  />
-                </ListItem>
-                <ListItem className={classes.cardlists}>
-                  <ListItemIcon>
-                    <StarRateIcon className={classes.cardicon} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Performance dashboard"
-                    className={classes.cardlist}
-                  />
-                </ListItem>
-              </List>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root} style={{ background: "#3f51b5" }}>
-          <CardActionArea>
-            <Typography variant="body2" className={classes.popular}>
-              POPULAR
-            </Typography>
-            <CardMedia
-              className={classes.media}
-              image={tsImage2}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                ISPO
-              </Typography>
-              <List
-                component="ul"
-                aria-label="main mailbox folders"
-                disablePadding
-              >
-                <ListItem className={classes.cardlists}>
-                  <ListItemIcon>
-                    <StarRateIcon className={classes.cardicon} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Deployment & Managment"
-                    className={classes.cardlist}
-                  />
-                </ListItem>
-                <ListItem className={classes.cardlists}>
-                  <ListItemIcon>
-                    <StarRateIcon className={classes.cardicon} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Performance dashboard"
-                    className={classes.cardlist}
-                  />
-                </ListItem>
-              </List>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={tsImage3}
-              title="Currency"
-            />
-            <CardContent>
-              <Typography
-                variant="h5"
-                component="h2"
-                className={classes.cardsheader}
-              >
-                Cardano Node
-              </Typography>
-              <List
-                component="ul"
-                aria-label="main mailbox folders"
-                disablePadding
-              >
-                <ListItem className={classes.cardlists}>
-                  <ListItemIcon>
-                    <StarRateIcon className={classes.cardicon} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Deployment & Managment"
-                    className={classes.cardlist}
-                  />
-                </ListItem>
-                <ListItem className={classes.cardlists}>
-                  <ListItemIcon>
-                    <StarRateIcon className={classes.cardicon} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Performance dashboard"
-                    className={classes.cardlist}
-                  />
-                </ListItem>
-              </List>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Box>
+              <CardMedia
+                className={classes.media}
+                image={tsImage2}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  ISPO
+                </Typography>
+                <List
+                  component="ul"
+                  aria-label="main mailbox folders"
+                  disablePadding
+                >
+                  <ListItem className={classes.cardlists}>
+                    <ListItemIcon>
+                      <StarRateIcon className={classes.cardicon} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Deployment & Managment"
+                      className={classes.cardlist}
+                    />
+                  </ListItem>
+                  <ListItem className={classes.cardlists}>
+                    <ListItemIcon>
+                      <StarRateIcon className={classes.cardicon} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Performance dashboard"
+                      className={classes.cardlist}
+                    />
+                  </ListItem>
+                </List>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={tsImage3}
+                title="Currency"
+              />
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  className={classes.cardsheader}
+                >
+                  Cardano Node
+                </Typography>
+                <List
+                  component="ul"
+                  aria-label="main mailbox folders"
+                  disablePadding
+                >
+                  <ListItem className={classes.cardlists}>
+                    <ListItemIcon>
+                      <StarRateIcon className={classes.cardicon} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Deployment & Managment"
+                      className={classes.cardlist}
+                    />
+                  </ListItem>
+                  <ListItem className={classes.cardlists}>
+                    <ListItemIcon>
+                      <StarRateIcon className={classes.cardicon} />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Performance dashboard"
+                      className={classes.cardlist}
+                    />
+                  </ListItem>
+                </List>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
