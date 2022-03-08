@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box, makeStyles, Typography, Button, Grid } from "@material-ui/core";
-import locImage3 from "../../images/yibei-geng--UdYbiywGeg-unsplash.jpg";
-
+import { motion } from "framer-motion";
+import { lefttoRightVariants } from "../../animations/animations";
 import ScheduleModal from "./ScheduleModal";
+import locImage3 from "../../images/yibei-geng--UdYbiywGeg-unsplash.jpg";
 
 const useStyles = makeStyles((theme) => ({
   branchinfo: {
@@ -65,7 +66,13 @@ const EastBranch = () => {
   };
 
   return (
-    <Box className={classes.branchinfo}>
+    <Box
+      className={classes.branchinfo}
+      component={motion.div}
+      variants={lefttoRightVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <img src={locImage3} alt="office3" className={classes.branchImg} />
       <Box className={classes.branchbox}>
         <Typography variant="h2">West Branch</Typography>

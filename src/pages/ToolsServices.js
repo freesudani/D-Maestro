@@ -1,7 +1,4 @@
 import React from "react";
-import tsImage1 from "../images/pexels-burak-kebapci-186461.jpg";
-import tsImage2 from "../images/pexels-david-mcbee-730547.jpg";
-import tsImage3 from "../images/pexels-pixabay-534216.jpg";
 import {
   makeStyles,
   Typography,
@@ -17,13 +14,17 @@ import {
   Grid,
 } from "@material-ui/core";
 import StarRateIcon from "@material-ui/icons/StarRate";
+import { motion } from "framer-motion";
+import { downtoUpVariants, smalltoBigVariants } from "../animations/animations";
+import tsImage1 from "../images/pexels-burak-kebapci-186461.jpg";
+import tsImage2 from "../images/pexels-david-mcbee-730547.jpg";
+import tsImage3 from "../images/pexels-pixabay-534216.jpg";
 
 const useStyles = makeStyles((theme) => ({
   tools: {
     paddingTop: "6rem",
     background: theme.palette.primary.dark,
     height: "105vh",
-    width: "100vw",
   },
   header: {
     color: theme.palette.error.dark,
@@ -92,6 +93,10 @@ const ToolsServices = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         • tools & services •
       </Typography>
@@ -100,6 +105,10 @@ const ToolsServices = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         stake pool
         <br /> deployment plateform
@@ -109,6 +118,10 @@ const ToolsServices = () => {
         variant="body2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         Enterprise-grade infrastructure & developer API to power cardano
       </Typography>
@@ -118,6 +131,10 @@ const ToolsServices = () => {
         xs={12}
         justifyContent="center"
         className={classes.cards}
+        component={motion.div}
+        variants={downtoUpVariants}
+        initial="hidden"
+        animate="visible"
       >
         <Grid item xs={4}>
           <Card className={classes.root}>

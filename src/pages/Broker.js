@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, makeStyles, Typography, Button } from "@material-ui/core";
+import FormatQuoteSharpIcon from "@material-ui/icons/FormatQuoteSharp";
+import { motion } from "framer-motion";
+import { lefttoRightVariants } from "../animations/animations";
 import brokerImage from "../images/ruben-sukatendel-VsPGJqafmTk-unsplash.jpg";
 import personimage from "../images/17.jpg";
-import FormatQuoteSharpIcon from "@material-ui/icons/FormatQuoteSharp";
 
 const useStyles = makeStyles((theme) => ({
   broker: {
@@ -81,6 +83,10 @@ const Broker = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
       >
         • Brokers Department •
       </Typography>
@@ -89,10 +95,20 @@ const Broker = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
       >
         More than just stock broking.
       </Typography>
-      <Box className={classes.brokerpic}>
+      <Box
+        className={classes.brokerpic}
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <img src={brokerImage} alt="broker" className={classes.image} />
         <Box className={classes.abroker}>
           <Box className={classes.brokerinfo}>

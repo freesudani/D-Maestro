@@ -9,6 +9,12 @@ import {
   Box,
   Grid,
 } from "@material-ui/core";
+import { motion } from "framer-motion";
+import {
+  lefttoRightVariants,
+  righttoLeftVariants,
+  smalltoBigVariants,
+} from "../animations/animations";
 
 import mpImage1 from "../images/pexels-fiona-art-4725323.jpg";
 import mpImage2 from "../images/pexels-fiona-art-5140444.jpg";
@@ -22,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "6rem 3rem",
     background: theme.palette.primary.dark,
     height: "135vh",
+    width: "100vw",
   },
   top: {
     display: "flex",
@@ -112,7 +119,13 @@ function Marketplace() {
   return (
     <Box className={classes.market}>
       <Box className={classes.top}>
-        <Box className={classes.topleft}>
+        <Box
+          className={classes.topleft}
+          component={motion.div}
+          variants={lefttoRightVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <Typography
             className={classes.header}
             variant="h6"
@@ -139,7 +152,13 @@ function Marketplace() {
             discover top crypto projects
           </Typography>
         </Box>
-        <Box className={classes.topright}>
+        <Box
+          className={classes.topright}
+          component={motion.div}
+          variants={righttoLeftVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <Box className={classes.statistics}>
             <Typography
               variant="h6"
@@ -193,7 +212,16 @@ function Marketplace() {
           </Box>
         </Box>
       </Box>
-      <Grid container spacing={5} xs={12} className={classes.cards}>
+      <Grid
+        container
+        spacing={5}
+        xs={12}
+        className={classes.cards}
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Grid item xs={4}>
           <Card className={classes.root}>
             <CardActionArea>

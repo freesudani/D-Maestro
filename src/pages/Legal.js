@@ -7,9 +7,11 @@ import {
   Grid,
   IconButton,
 } from "@material-ui/core";
-import lawyerImage from "../images/pamela-buenrostro-3Vdf7wIJ7ds-unsplash.jpg";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { motion } from "framer-motion";
+import { lefttoRightVariants } from "../animations/animations";
+import lawyerImage from "../images/pamela-buenrostro-3Vdf7wIJ7ds-unsplash.jpg";
 
 const useStyles = makeStyles((theme) => ({
   legal: {
@@ -67,6 +69,10 @@ const Legal = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
       >
         • Legal Department •
       </Typography>
@@ -75,10 +81,22 @@ const Legal = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
       >
         Legal Insight Business Instinct.
       </Typography>
-      <Grid container spacing={4} style={{ marginTop: "2rem" }}>
+      <Grid
+        container
+        spacing={4}
+        style={{ marginTop: "2rem" }}
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Grid item xs={1} />
         <Grid item xs={7}>
           <Typography

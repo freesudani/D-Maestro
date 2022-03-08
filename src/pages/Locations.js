@@ -7,6 +7,8 @@ import {
   Select,
   Typography,
 } from "@material-ui/core";
+import { motion } from "framer-motion";
+import { smalltoBigVariants } from "../animations/animations";
 import NorthBranch from "../components/branches/NorthBranch";
 import EastBranch from "../components/branches/EastBranch";
 import WestBranch from "../components/branches/WestBranch";
@@ -16,8 +18,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     paddingTop: "6rem",
-    paddingLeft: "3rem",
-    paddingRight: "3rem",
     height: "205vh",
     background: theme.palette.primary.dark,
   },
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Locations = () => {
-  const [value, setValue] = useState("10");
+  const [value, setValue] = useState("0");
 
   const classes = useStyles();
 
@@ -63,6 +63,10 @@ const Locations = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         • Branches •
       </Typography>
@@ -71,10 +75,20 @@ const Locations = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         We welcome you
       </Typography>
-      <Box className={classes.selectbranch}>
+      <Box
+        className={classes.selectbranch}
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="branch" className={classes.inputlabel}>
             Select Branch Name
@@ -85,6 +99,9 @@ const Locations = () => {
             onChange={(event) => setValue(event.target.value)}
             className={classes.inputlabel}
           >
+            <option value={"0"} className={classes.inputlabel2}>
+              {""}
+            </option>
             <option value={"10"} className={classes.inputlabel2}>
               North
             </option>

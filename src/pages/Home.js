@@ -5,13 +5,13 @@ import { NewsContext } from "../store/news-context";
 import { Oval } from "react-loader-spinner";
 import FlareIcon from "@material-ui/icons/Flare";
 import Iconsvg from "../images/2844382_ada_cardano_icon.svg";
+import { motion } from "framer-motion";
+import { lefttoRightVariants } from "../animations/animations";
 
 const useStyles = makeStyles((theme) => ({
   home: {
     display: "flex",
     paddingTop: "8rem",
-    /* paddingLeft: "2rem",
-    paddingRight: "2rem", */
     width: "100vw",
     height: "100vh",
     backgroundColor: theme.palette.primary.dark,
@@ -98,7 +98,14 @@ const Home = () => {
   return (
     <Grid container xs={12} className={classes.home}>
       <Grid item xs={1} />
-      <Grid item xs={6}>
+      <Grid
+        item
+        xs={6}
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Typography variant="h2" className={classes.text} gutterBottom>
           pioneering
           <br /> the future of{" "}

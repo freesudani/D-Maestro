@@ -2,6 +2,8 @@ import React from "react";
 import { Box, makeStyles, Typography, Avatar, Grid } from "@material-ui/core";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
+import { motion } from "framer-motion";
+import { lefttoRightVariants } from "../animations/animations";
 import TylerImage from "../images/19.jpg";
 import TommyImage from "../images/51.jpg";
 import AccountingImage from "../images/kelly-sikkema-SiOW0btU0zk-unsplash.jpg";
@@ -38,10 +40,12 @@ const useStyles = makeStyles((theme) => ({
   boxheader: {
     fontWeight: theme.typography.fontWeightBold,
     color: "white",
+    textTransform: "capitalize",
   },
 
   boxparag: {
     textAlign: "justify",
+    color: "white",
   },
 
   accountingstaff: {
@@ -49,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
     width: "50rem",
-    marginTop: "4.8rem",
+    marginTop: "5.5rem",
     marginRight: "0.1rem",
   },
 
@@ -86,6 +90,10 @@ const Accounting = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
       >
         • Accounting Department •
       </Typography>
@@ -94,12 +102,22 @@ const Accounting = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
       >
         Your success is our business.
       </Typography>
-      <Box className={classes.body}>
+      <Box
+        className={classes.body}
+        component={motion.div}
+        variants={lefttoRightVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Box className={classes.textsection}>
-          <Typography variant="h3" gutterBottom className={classes.boxheader}>
+          <Typography variant="h4" gutterBottom className={classes.boxheader}>
             About our department
           </Typography>
           <Typography variant="body1" gutterBottom className={classes.boxparag}>

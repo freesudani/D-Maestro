@@ -4,6 +4,13 @@ import { makeStyles, Paper, Typography, Box } from "@material-ui/core";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import EmailIcon from "@material-ui/icons/Email";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { motion } from "framer-motion";
+import {
+  rotateRightToLeftVariants,
+  rotateLeftToRightVariants,
+  smalltoBigVariants,
+  downtoUpVariants,
+} from "../animations/animations";
 import bgImage from "../images/pexels-revac-films&photography-205333.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -115,6 +122,10 @@ const Socials = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         • socials •
       </Typography>
@@ -123,6 +134,10 @@ const Socials = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         Connect with us
       </Typography>
@@ -131,6 +146,10 @@ const Socials = () => {
         variant="body2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         Follow our social media channels and join the community!
       </Typography>
@@ -139,6 +158,10 @@ const Socials = () => {
           elevation={0}
           className={classes.linkdinpaper}
           onClick={cryCtx.ldopen}
+          component={motion.div}
+          variants={rotateRightToLeftVariants}
+          initial="hidden"
+          animate="visible"
         >
           <LinkedInIcon className={classes.linkdinIcon} />
         </Paper>
@@ -146,6 +169,10 @@ const Socials = () => {
           elevation={0}
           className={classes.emailpaper}
           onClick={cryCtx.emopen}
+          component={motion.div}
+          variants={downtoUpVariants}
+          initial="hidden1"
+          animate="visible"
         >
           <EmailIcon className={classes.emailIcon} />
         </Paper>
@@ -153,6 +180,10 @@ const Socials = () => {
           elevation={0}
           className={classes.twiterpaper}
           onClick={cryCtx.twopen}
+          component={motion.div}
+          variants={rotateLeftToRightVariants}
+          initial="hidden"
+          animate="visible"
         >
           <TwitterIcon className={classes.twitterIcon} />
         </Paper>

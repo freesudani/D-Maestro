@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
-import { Box, makeStyles, Typography } from "@material-ui/core";
+import { Box, makeStyles, Typography, Paper, Grid } from "@material-ui/core";
 import { DataContext } from "../store/index-context";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+import { motion } from "framer-motion";
+import { downtoUpVariants, smalltoBigVariants } from "../animations/animations";
 
 const useStyles = makeStyles((theme) => ({
   index: {
@@ -60,7 +60,7 @@ const CryptoIndex = () => {
 
   useEffect(() => {
     ctx.getrate();
-  }, []);
+  }, [ctx]);
 
   return (
     <Box className={classes.index}>
@@ -70,6 +70,10 @@ const CryptoIndex = () => {
         align="center"
         color="red"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         • Crypto Index •
       </Typography>
@@ -78,6 +82,10 @@ const CryptoIndex = () => {
         variant="h2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         Currect Cypto Trend
       </Typography>
@@ -86,11 +94,21 @@ const CryptoIndex = () => {
         variant="body2"
         align="center"
         gutterBottom
+        component={motion.div}
+        variants={smalltoBigVariants}
+        initial="hidden"
+        animate="visible"
       >
         Live Crypto Prices
       </Typography>
 
-      <Box className={classes.root}>
+      <Box
+        className={classes.root}
+        component={motion.div}
+        variants={downtoUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Grid container spacing={10}>
           <Grid item xs={4} className={classes.cryptoindex}>
             <Paper>
