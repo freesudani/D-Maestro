@@ -11,6 +11,7 @@ import {
   smalltoBigVariants,
   downtoUpVariants,
 } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 import bgImage from "../images/pexels-revac-films&photography-205333.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${bgImage})`,
     backgroundSize: "cover",
     height: "100vh",
+    [theme.breakpoints.down("md")]: {
+      height: "90vh",
+    },
   },
 
   header: {
@@ -113,12 +117,15 @@ const useStyles = makeStyles((theme) => ({
 const Socials = () => {
   const cryCtx = useContext(CryptoContext);
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
 
   return (
     <Box className={classes.social}>
       <Typography
         className={classes.header}
-        variant="h6"
+        variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
         align="center"
         color="red"
         gutterBottom
@@ -131,7 +138,7 @@ const Socials = () => {
       </Typography>
       <Typography
         className={classes.header2}
-        variant="h2"
+        variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
         gutterBottom
         component={motion.div}

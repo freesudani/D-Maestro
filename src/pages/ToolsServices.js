@@ -16,6 +16,7 @@ import {
 import StarRateIcon from "@material-ui/icons/StarRate";
 import { motion } from "framer-motion";
 import { downtoUpVariants, smalltoBigVariants } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 import tsImage1 from "../images/pexels-burak-kebapci-186461.jpg";
 import tsImage2 from "../images/pexels-david-mcbee-730547.jpg";
 import tsImage3 from "../images/pexels-pixabay-534216.jpg";
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "6rem",
     background: theme.palette.primary.dark,
     height: "105vh",
+    [theme.breakpoints.down("md")]: {
+      height: "90vh",
+    },
   },
   header: {
     color: theme.palette.error.dark,
@@ -84,12 +88,15 @@ const useStyles = makeStyles((theme) => ({
 
 const ToolsServices = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
 
   return (
     <Box className={classes.tools}>
       <Typography
         className={classes.header}
-        variant="h6"
+        variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
         align="center"
         color="red"
         gutterBottom
@@ -102,7 +109,7 @@ const ToolsServices = () => {
       </Typography>
       <Typography
         className={classes.header2}
-        variant="h2"
+        variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
         gutterBottom
         component={motion.div}

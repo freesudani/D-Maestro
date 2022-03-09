@@ -12,6 +12,7 @@ import { smalltoBigVariants } from "../animations/animations";
 import NorthBranch from "../components/branches/NorthBranch";
 import EastBranch from "../components/branches/EastBranch";
 import WestBranch from "../components/branches/WestBranch";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   location: {
@@ -20,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "6rem",
     height: "205vh",
     background: theme.palette.primary.dark,
+    [theme.breakpoints.down("lg")]: {
+      height: "190vh",
+    },
+    [theme.breakpoints.down("md")]: {
+      height: "180vh",
+    },
   },
   header: {
     color: theme.palette.error.dark,
@@ -54,12 +61,15 @@ const Locations = () => {
   const [value, setValue] = useState("0");
 
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
 
   return (
     <Box className={classes.location}>
       <Typography
         className={classes.header}
-        variant="h6"
+        variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
         align="center"
         color="red"
         gutterBottom
@@ -72,7 +82,7 @@ const Locations = () => {
       </Typography>
       <Typography
         className={classes.header2}
-        variant="h2"
+        variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
         gutterBottom
         component={motion.div}

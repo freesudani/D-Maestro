@@ -11,6 +11,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { motion } from "framer-motion";
 import { lefttoRightVariants } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 import lawyerImage from "../images/pamela-buenrostro-3Vdf7wIJ7ds-unsplash.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "3rem",
     height: "115vh",
     background: theme.palette.primary.dark,
+    [theme.breakpoints.down("md")]: {
+      height: "95vh",
+    },
   },
 
   header: {
@@ -60,12 +64,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Legal = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
 
   return (
     <Box className={classes.legal}>
       <Typography
         className={classes.header}
-        variant="h6"
+        variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
         align="center"
         color="red"
         gutterBottom
@@ -78,7 +85,7 @@ const Legal = () => {
       </Typography>
       <Typography
         className={classes.header2}
-        variant="h2"
+        variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
         gutterBottom
         component={motion.div}
@@ -100,7 +107,7 @@ const Legal = () => {
         <Grid item xs={1} />
         <Grid item xs={7}>
           <Typography
-            variant="h4"
+            variant={MQmd ? "h5" : MQlg ? "h4" : "h6"}
             align="center"
             gutterBottom
             className={classes.lawyerheader}
@@ -108,7 +115,7 @@ const Legal = () => {
             Changing the way law firms do business
           </Typography>
           <Typography
-            variant="subtitle1"
+            variant={MQmd ? "subtitle2" : MQlg ? "subtitle1" : "body2"}
             align="justify"
             paragraph
             className={classes.lawyerparag}
@@ -134,10 +141,16 @@ const Legal = () => {
           <img src={lawyerImage} alt="lawyer" className={classes.lawyerphoto} />
           <Box className={classes.lawyericons}>
             <IconButton>
-              <TwitterIcon fontSize="large" className={classes.lawyericon} />
+              <TwitterIcon
+                fontSize={MQmd ? "medium" : MQlg ? "large" : "medium"}
+                className={classes.lawyericon}
+              />
             </IconButton>
             <IconButton>
-              <LinkedInIcon fontSize="large" className={classes.lawyericon} />
+              <LinkedInIcon
+                fontSize={MQmd ? "medium" : MQlg ? "large" : "medium"}
+                className={classes.lawyericon}
+              />
             </IconButton>
           </Box>
           <Typography variant="h5" align="center" style={{ color: "white" }}>

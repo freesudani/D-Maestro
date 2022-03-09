@@ -3,6 +3,7 @@ import { Box, makeStyles, Typography, Paper, Grid } from "@material-ui/core";
 import { DataContext } from "../store/index-context";
 import { motion } from "framer-motion";
 import { downtoUpVariants, smalltoBigVariants } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   index: {
@@ -11,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "3rem",
     height: "100vh",
     background: theme.palette.primary.dark,
+    [theme.breakpoints.down("md")]: {
+      height: "90vh",
+    },
   },
   header: {
     color: theme.palette.error.dark,
@@ -57,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
 const CryptoIndex = () => {
   const ctx = useContext(DataContext);
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
 
   useEffect(() => {
     ctx.getrate();
@@ -66,7 +73,7 @@ const CryptoIndex = () => {
     <Box className={classes.index}>
       <Typography
         className={classes.header}
-        variant="h6"
+        variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
         align="center"
         color="red"
         gutterBottom
@@ -79,7 +86,7 @@ const CryptoIndex = () => {
       </Typography>
       <Typography
         className={classes.header2}
-        variant="h2"
+        variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
         gutterBottom
         component={motion.div}

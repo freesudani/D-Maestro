@@ -7,6 +7,7 @@ import FlareIcon from "@material-ui/icons/Flare";
 import Iconsvg from "../images/2844382_ada_cardano_icon.svg";
 import { motion } from "framer-motion";
 import { lefttoRightVariants } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   home: {
@@ -32,13 +33,25 @@ const useStyles = makeStyles((theme) => ({
     WebkitTextFillColor: "transparent",
   },
 
-  ispos: { display: "flex", marginTop: "2rem" },
+  ispos: {
+    display: "flex",
+    marginTop: "2rem",
+    [theme.breakpoints.down("md")]: {
+      alignItems: "center",
+    },
+  },
   ispo: {
     display: "flex",
     marginRight: "3.5rem",
+    [theme.breakpoints.down("md")]: {
+      marginRight: "2rem",
+    },
   },
   flare: {
     marginRight: "0.5rem",
+    [theme.breakpoints.down("md")]: {
+      marginRight: "0.4rem",
+    },
   },
 
   buttons: {
@@ -47,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     width: "80%",
     marginTop: "2.5rem",
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+    },
   },
 
   button: {
@@ -57,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     width: "10rem",
     height: "3rem",
+    [theme.breakpoints.down("md")]: {
+      width: "7rem",
+    },
   },
 
   cardanoicon: {
@@ -90,6 +109,9 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
   const ctx = useContext(NewsContext);
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
 
   useEffect(() => {
     ctx.getnews();
@@ -106,7 +128,11 @@ const Home = () => {
         initial="hidden"
         animate="visible"
       >
-        <Typography variant="h2" className={classes.text} gutterBottom>
+        <Typography
+          variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
+          className={classes.text}
+          gutterBottom
+        >
           pioneering
           <br /> the future of{" "}
           <Box component="span" m={1} className={classes.textspan}>
@@ -120,11 +146,13 @@ const Home = () => {
         <Box className={classes.ispos}>
           <Box className={classes.ispo}>
             <FlareIcon className={classes.flare} />
-            <Typography gutterBottom>Wolrd's 1st ISPO platform</Typography>
+            <Typography gutterBottom variant={MQmd ? "caption" : "body1"}>
+              Wolrd's 1st ISPO platform
+            </Typography>
           </Box>
           <Box className={classes.ispo}>
             <FlareIcon className={classes.flare} />
-            <Typography gutterBottom>
+            <Typography gutterBottom variant={MQmd ? "caption" : "body1"}>
               Discover, invest and launch ISPOs
             </Typography>
           </Box>
@@ -133,7 +161,7 @@ const Home = () => {
           <Button
             variant="contained"
             color="secondary"
-            size="large"
+            size={MQlg ? "large" : "small"}
             className={classes.button}
           >
             Explore
@@ -141,14 +169,17 @@ const Home = () => {
           <Button
             variant="outlined"
             color="secondary"
-            size="large"
+            size={MQlg ? "large" : "small"}
             className={classes.button}
           >
             Create
           </Button>
           <Box className={classes.cardano}>
             <img src={Iconsvg} alt="icon" className={classes.cardanoicon} />
-            <Button size="large" className={classes.cardanobutton}>
+            <Button
+              size={MQlg ? "large" : "small"}
+              className={classes.cardanobutton}
+            >
               Built on Cardano
             </Button>
           </Box>

@@ -15,6 +15,7 @@ import {
   righttoLeftVariants,
   smalltoBigVariants,
 } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 
 import mpImage1 from "../images/pexels-fiona-art-4725323.jpg";
 import mpImage2 from "../images/pexels-fiona-art-5140444.jpg";
@@ -29,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.dark,
     height: "135vh",
     width: "100vw",
+    [theme.breakpoints.down("md")]: {
+      height: "120vh",
+    },
   },
   top: {
     display: "flex",
@@ -116,6 +120,10 @@ const useStyles = makeStyles((theme) => ({
 
 function Marketplace() {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+
   return (
     <Box className={classes.market}>
       <Box className={classes.top}>
@@ -128,7 +136,7 @@ function Marketplace() {
         >
           <Typography
             className={classes.header}
-            variant="h6"
+            variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
             align="center"
             color="red"
             gutterBottom
@@ -137,7 +145,7 @@ function Marketplace() {
           </Typography>
           <Typography
             className={classes.header2}
-            variant="h2"
+            variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
             align="center"
             gutterBottom
           >
@@ -161,7 +169,7 @@ function Marketplace() {
         >
           <Box className={classes.statistics}>
             <Typography
-              variant="h6"
+              variant={MQlg ? "h6" : "subtitle1"}
               align="right"
               gutterBottom
               className={classes.statistic}
@@ -169,7 +177,7 @@ function Marketplace() {
               12
             </Typography>
             <Typography
-              variant="body1"
+              variant={MQlg ? "body1" : "body2"}
               align="right"
               className={classes.statisticdesc}
             >
@@ -178,7 +186,7 @@ function Marketplace() {
           </Box>
           <Box className={classes.statistics}>
             <Typography
-              variant="h6"
+              variant={MQlg ? "h6" : "subtitle1"}
               align="right"
               gutterBottom
               className={classes.statistic}
@@ -186,7 +194,7 @@ function Marketplace() {
               $345,679,901
             </Typography>
             <Typography
-              variant="body1"
+              variant={MQlg ? "body1" : "body2"}
               align="right"
               className={classes.statisticdesc}
             >
@@ -195,7 +203,7 @@ function Marketplace() {
           </Box>
           <Box className={classes.statistics}>
             <Typography
-              variant="h6"
+              variant={MQlg ? "h6" : "subtitle1"}
               align="right"
               gutterBottom
               className={classes.statistic}
@@ -203,7 +211,7 @@ function Marketplace() {
               25,345
             </Typography>
             <Typography
-              variant="body1"
+              variant={MQlg ? "body1" : "body2"}
               align="right"
               className={classes.statisticdesc}
             >

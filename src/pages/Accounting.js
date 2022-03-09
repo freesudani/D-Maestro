@@ -4,6 +4,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import { motion } from "framer-motion";
 import { lefttoRightVariants } from "../animations/animations";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 import TylerImage from "../images/19.jpg";
 import TommyImage from "../images/51.jpg";
 import AccountingImage from "../images/kelly-sikkema-SiOW0btU0zk-unsplash.jpg";
@@ -15,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "3rem",
     height: "135vh",
     background: theme.palette.primary.dark,
+
+    [theme.breakpoints.down("md")]: {
+      height: "110vh",
+    },
   },
 
   header: {
@@ -55,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
     width: "50rem",
     marginTop: "5.5rem",
     marginRight: "0.1rem",
+    [theme.breakpoints.down("lg")]: {
+      width: "45rem",
+    },
   },
 
   staffimage: {
@@ -82,11 +90,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Accounting = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+
   return (
     <Box className={classes.accounting}>
       <Typography
         className={classes.header}
-        variant="h6"
+        variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
         align="center"
         color="red"
         gutterBottom
@@ -99,7 +111,7 @@ const Accounting = () => {
       </Typography>
       <Typography
         className={classes.header2}
-        variant="h2"
+        variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
         gutterBottom
         component={motion.div}
@@ -117,10 +129,18 @@ const Accounting = () => {
         animate="visible"
       >
         <Box className={classes.textsection}>
-          <Typography variant="h4" gutterBottom className={classes.boxheader}>
+          <Typography
+            variant={MQmd ? "h5" : MQlg ? "h4" : "h6"}
+            gutterBottom
+            className={classes.boxheader}
+          >
             About our department
           </Typography>
-          <Typography variant="body1" gutterBottom className={classes.boxparag}>
+          <Typography
+            variant={MQmd ? "body2" : MQlg ? "body1" : "body2"}
+            gutterBottom
+            className={classes.boxparag}
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
             quaerat illo consequatur minus itaque aperiam dolor error tenetur
             vel, cupiditate exercitationem ut, corporis nam. Quos quod impedit
@@ -143,14 +163,20 @@ const Accounting = () => {
               />
             </Grid>
             <Grid item xs={6} className={classes.staffpos}>
-              <Typography variant="h6">
+              <Typography
+                variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
+              >
                 Head of Accounting department
               </Typography>
               <Typography variant="body2">Tyler Ramirez</Typography>
             </Grid>
             <Grid item xs={3} className={classes.icons}>
-              <LinkedInIcon fontSize="large" />
-              <EmailIcon fontSize="large" />
+              <LinkedInIcon
+                fontSize={MQmd ? "medium" : MQlg ? "large" : "medium"}
+              />
+              <EmailIcon
+                fontSize={MQmd ? "medium" : MQlg ? "large" : "medium"}
+              />
             </Grid>
           </Grid>
           <Grid
@@ -167,12 +193,20 @@ const Accounting = () => {
               />
             </Grid>
             <Grid item xs={6} className={classes.staffpos}>
-              <Typography variant="h6">Accounting customer rep.</Typography>
+              <Typography
+                variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
+              >
+                Accounting customer rep.
+              </Typography>
               <Typography variant="body2">Tommy Rodriguez</Typography>
             </Grid>
             <Grid item xs={3} className={classes.icons}>
-              <LinkedInIcon fontSize="large" />
-              <EmailIcon fontSize="large" />
+              <LinkedInIcon
+                fontSize={MQmd ? "medium" : MQlg ? "large" : "medium"}
+              />
+              <EmailIcon
+                fontSize={MQmd ? "medium" : MQlg ? "large" : "medium"}
+              />
             </Grid>
           </Grid>
         </Box>
