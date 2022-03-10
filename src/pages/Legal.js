@@ -22,7 +22,12 @@ const useStyles = makeStyles((theme) => ({
     height: "115vh",
     background: theme.palette.primary.dark,
     [theme.breakpoints.down("md")]: {
-      height: "95vh",
+      height: "125vh",
+      paddingLeft: "0",
+      paddingRight: "0",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "225vh",
     },
   },
 
@@ -67,6 +72,7 @@ const Legal = () => {
   const theme = useTheme();
   const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
   const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   return (
     <Box className={classes.legal}>
@@ -87,7 +93,7 @@ const Legal = () => {
         className={classes.header2}
         variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}
         align="center"
-        gutterBottom
+        gutterBottom={MQsm ? "false" : "true"}
         component={motion.div}
         variants={lefttoRightVariants}
         initial="hidden"
@@ -98,14 +104,18 @@ const Legal = () => {
       <Grid
         container
         spacing={4}
-        style={{ marginTop: "2rem" }}
+        xs={12}
+        style={{ marginTop: "0.1rem" }}
+        direction={MQsm ? "column" : "row"}
+        justifyContent={MQsm ? "center" : "flex-start"}
+        alignItems={MQsm ? "center" : "flex-start"}
         component={motion.div}
         variants={lefttoRightVariants}
         initial="hidden"
         animate="visible"
       >
-        <Grid item xs={1} />
-        <Grid item xs={7}>
+        <Grid item md={1} sm={1} />
+        <Grid item md={7} sm={10} style={{ textAlign: "center" }}>
           <Typography
             variant={MQmd ? "h5" : MQlg ? "h4" : "h6"}
             align="center"
@@ -137,7 +147,7 @@ const Legal = () => {
             Submit your case
           </Button>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item md={3} sm={12}>
           <img src={lawyerImage} alt="lawyer" className={classes.lawyerphoto} />
           <Box className={classes.lawyericons}>
             <IconButton>

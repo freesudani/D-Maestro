@@ -7,6 +7,7 @@ import {
   makeStyles,
   Box,
 } from "@material-ui/core";
+import { useTheme, useMediaQuery } from "@material-ui/core";
 import IconsMenu from "./IconsMenu";
 import DropdownMenu from "./DropdownMenu";
 
@@ -28,6 +29,8 @@ const useStyles = makeStyles(() => ({
 const Navbar = () => {
   const cryCtx = useContext(CryptoContext);
   const classes = useStyles();
+  const theme = useTheme();
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   return (
     <AppBar>
@@ -43,7 +46,7 @@ const Navbar = () => {
         </Box>
         <Box className={classes.submenu}>
           <DropdownMenu />
-          <IconsMenu />
+          {!MQsm && <IconsMenu />}
         </Box>
       </Toolbar>
     </AppBar>

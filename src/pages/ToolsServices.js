@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       height: "90vh",
     },
+    [theme.breakpoints.down("sm")]: {
+      height: "auto",
+    },
   },
   header: {
     color: theme.palette.error.dark,
@@ -45,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
   cards: {
     margin: "2rem auto auto 2rem",
     position: "relative",
+    [theme.breakpoints.down("sm")]: {
+      margin: "2rem auto",
+      paddingLeft: "8rem",
+    },
   },
   popular: {
     position: "absolute",
@@ -91,6 +98,7 @@ const ToolsServices = () => {
   const theme = useTheme();
   const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
   const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   return (
     <Box className={classes.tools}>
@@ -134,16 +142,17 @@ const ToolsServices = () => {
       </Typography>
       <Grid
         container
-        spacing={4}
+        spacing={MQsm ? 3 : 4}
         xs={12}
         justifyContent="center"
+        alignItems="center"
         className={classes.cards}
         component={motion.div}
         variants={downtoUpVariants}
         initial="hidden"
         animate="visible"
       >
-        <Grid item xs={4}>
+        <Grid item lg={4} sm={12}>
           <Card className={classes.root}>
             <CardActionArea>
               <CardMedia
@@ -187,7 +196,7 @@ const ToolsServices = () => {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item lg={4} sm={12}>
           <Card className={classes.root} style={{ background: "#3f51b5" }}>
             <CardActionArea>
               <Typography variant="body2" className={classes.popular}>
@@ -234,7 +243,7 @@ const ToolsServices = () => {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item lg={4} sm={12}>
           <Card className={classes.root}>
             <CardActionArea>
               <CardMedia

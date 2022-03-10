@@ -33,32 +33,60 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       height: "120vh",
     },
+    [theme.breakpoints.down("sm")]: {
+      padding: "6rem auto 1rem",
+      height: "auto",
+    },
   },
   top: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   topleft: {
     display: "flex",
     flexDirection: "column",
     alignItems: "start",
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "center",
+    },
   },
   topright: {
     display: "flex",
     width: "50vw",
+    [theme.breakpoints.down("sm")]: {
+      width: "100vw",
+      alignItems: "center",
+      textAlign: "center",
+      marginRight: "5rem",
+      marginTop: "2rem",
+    },
   },
   statistics: {
     marginLeft: "7rem",
     width: "7.5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "auto",
+      alignItems: "center",
+      textAlign: "center",
+    },
   },
   statistic: {
     color: "white",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
   statisticdesc: {
     color: "#9575cd",
     fontWeight: "bold",
     textAlign: "right",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
   header: {
     color: theme.palette.error.dark,
@@ -74,18 +102,28 @@ const useStyles = makeStyles((theme) => ({
   },
   cards: {
     margin: "1rem auto auto 2rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "2rem auto 0.1rem",
+    },
   },
   root: {
     position: "relative",
     height: "15rem",
     maxWidth: 275,
     background: theme.palette.primary.main,
+    [theme.breakpoints.down("sm")]: {
+      height: "15rem",
+    },
   },
   cardicon: {
     color: "white",
     position: "absolute",
     right: "1rem",
     top: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      right: "0.5rem",
+      top: "0.5rem",
+    },
   },
   media: {
     height: 120,
@@ -103,6 +141,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "1rem",
+    },
   },
 
   cardbottomleft: {
@@ -114,7 +155,10 @@ const useStyles = makeStyles((theme) => ({
   cardbottomRight: {
     background: "black",
     borderRadius: "5px",
-    padding: "0.2rem .4rem",
+    padding: "0.2rem 0.4rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: "0.1rem 0.2rem",
+    },
   },
 }));
 
@@ -123,6 +167,7 @@ function Marketplace() {
   const theme = useTheme();
   const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
   const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   return (
     <Box className={classes.market}>
@@ -222,19 +267,22 @@ function Marketplace() {
       </Box>
       <Grid
         container
-        spacing={5}
+        spacing={MQsm ? 3 : 5}
         xs={12}
         className={classes.cards}
         component={motion.div}
         variants={smalltoBigVariants}
         initial="hidden"
         animate="visible"
+        justifyContent="center"
       >
-        <Grid item xs={4}>
+        <Grid item md={4} sm={6}>
           <Card className={classes.root}>
             <CardActionArea>
               <Box className={classes.cardicon}>
-                <Typography variant="h6">Maestro</Typography>
+                <Typography variant={MQsm ? "subtitle1" : "h6"}>
+                  Maestro
+                </Typography>
               </Box>
               <CardMedia
                 className={classes.media}
@@ -243,7 +291,7 @@ function Marketplace() {
               />
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant={MQsm ? "h6" : "h5"}
                   component="h2"
                   className={classes.cardsheader}
                 >
@@ -251,7 +299,7 @@ function Marketplace() {
                 </Typography>
                 <Typography
                   className={classes.cardheader2}
-                  variant="body2"
+                  variant={MQsm ? "caption" : "body2"}
                   align="left"
                   gutterBottom
                 >
@@ -259,7 +307,10 @@ function Marketplace() {
                 </Typography>
                 <Box className={classes.cardbottom}>
                   <Box className={classes.cardbottomleft}>
-                    <Typography variant="h6" align="right">
+                    <Typography
+                      variant={MQsm ? "subtitle1" : "h6"}
+                      align="right"
+                    >
                       $345,679
                     </Typography>
                     <Typography
@@ -284,11 +335,13 @@ function Marketplace() {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} sm={6}>
           <Card className={classes.root}>
             <CardActionArea>
               <Box className={classes.cardicon}>
-                <Typography variant="h6">Maestro</Typography>
+                <Typography variant={MQsm ? "subtitle1" : "h6"}>
+                  Maestro
+                </Typography>
               </Box>
               <CardMedia
                 className={classes.media}
@@ -297,7 +350,7 @@ function Marketplace() {
               />
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant={MQsm ? "h6" : "h5"}
                   component="h2"
                   className={classes.cardsheader}
                 >
@@ -305,7 +358,7 @@ function Marketplace() {
                 </Typography>
                 <Typography
                   className={classes.cardheader2}
-                  variant="body2"
+                  variant={MQsm ? "caption" : "body2"}
                   align="left"
                   gutterBottom
                 >
@@ -313,7 +366,10 @@ function Marketplace() {
                 </Typography>
                 <Box className={classes.cardbottom}>
                   <Box className={classes.cardbottomleft}>
-                    <Typography variant="h6" align="right">
+                    <Typography
+                      variant={MQsm ? "subtitle1" : "h6"}
+                      align="right"
+                    >
                       $345,679
                     </Typography>
                     <Typography
@@ -338,11 +394,13 @@ function Marketplace() {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} sm={6}>
           <Card className={classes.root}>
             <CardActionArea>
               <Box className={classes.cardicon}>
-                <Typography variant="h6">Maestro</Typography>
+                <Typography variant={MQsm ? "subtitle1" : "h6"}>
+                  Maestro
+                </Typography>
               </Box>
               <CardMedia
                 className={classes.media}
@@ -351,7 +409,7 @@ function Marketplace() {
               />
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant={MQsm ? "h6" : "h5"}
                   component="h2"
                   className={classes.cardsheader}
                 >
@@ -359,7 +417,7 @@ function Marketplace() {
                 </Typography>
                 <Typography
                   className={classes.cardheader2}
-                  variant="body2"
+                  variant={MQsm ? "caption" : "body2"}
                   align="left"
                   gutterBottom
                 >
@@ -367,7 +425,10 @@ function Marketplace() {
                 </Typography>
                 <Box className={classes.cardbottom}>
                   <Box className={classes.cardbottomleft}>
-                    <Typography variant="h6" align="right">
+                    <Typography
+                      variant={MQsm ? "subtitle1" : "h6"}
+                      align="right"
+                    >
                       $345,679
                     </Typography>
                     <Typography
@@ -392,11 +453,13 @@ function Marketplace() {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} sm={6}>
           <Card className={classes.root}>
             <CardActionArea>
               <Box className={classes.cardicon}>
-                <Typography variant="h6">Maestro</Typography>
+                <Typography variant={MQsm ? "subtitle1" : "h6"}>
+                  Maestro
+                </Typography>
               </Box>
               <CardMedia
                 className={classes.media}
@@ -405,7 +468,7 @@ function Marketplace() {
               />
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant={MQsm ? "h6" : "h5"}
                   component="h2"
                   className={classes.cardsheader}
                 >
@@ -413,7 +476,7 @@ function Marketplace() {
                 </Typography>
                 <Typography
                   className={classes.cardheader2}
-                  variant="body2"
+                  variant={MQsm ? "caption" : "body2"}
                   align="left"
                   gutterBottom
                 >
@@ -421,7 +484,10 @@ function Marketplace() {
                 </Typography>
                 <Box className={classes.cardbottom}>
                   <Box className={classes.cardbottomleft}>
-                    <Typography variant="h6" align="right">
+                    <Typography
+                      variant={MQsm ? "subtitle1" : "h6"}
+                      align="right"
+                    >
                       $345,679
                     </Typography>
                     <Typography
@@ -446,11 +512,13 @@ function Marketplace() {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} sm={6}>
           <Card className={classes.root}>
             <CardActionArea>
               <Box className={classes.cardicon}>
-                <Typography variant="h6">Maestro</Typography>
+                <Typography variant={MQsm ? "subtitle1" : "h6"}>
+                  Maestro
+                </Typography>
               </Box>
               <CardMedia
                 className={classes.media}
@@ -459,7 +527,7 @@ function Marketplace() {
               />
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant={MQsm ? "h6" : "h5"}
                   component="h2"
                   className={classes.cardsheader}
                 >
@@ -467,7 +535,7 @@ function Marketplace() {
                 </Typography>
                 <Typography
                   className={classes.cardheader2}
-                  variant="body2"
+                  variant={MQsm ? "caption" : "body2"}
                   align="left"
                   gutterBottom
                 >
@@ -475,7 +543,10 @@ function Marketplace() {
                 </Typography>
                 <Box className={classes.cardbottom}>
                   <Box className={classes.cardbottomleft}>
-                    <Typography variant="h6" align="right">
+                    <Typography
+                      variant={MQsm ? "subtitle1" : "h6"}
+                      align="right"
+                    >
                       $345,679
                     </Typography>
                     <Typography
@@ -500,11 +571,13 @@ function Marketplace() {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} sm={6}>
           <Card className={classes.root}>
             <CardActionArea>
               <Box className={classes.cardicon}>
-                <Typography variant="h6">Maestro</Typography>
+                <Typography variant={MQsm ? "subtitle1" : "h6"}>
+                  Maestro
+                </Typography>
               </Box>
               <CardMedia
                 className={classes.media}
@@ -513,7 +586,7 @@ function Marketplace() {
               />
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant={MQsm ? "h6" : "h5"}
                   component="h2"
                   className={classes.cardsheader}
                 >
@@ -521,7 +594,7 @@ function Marketplace() {
                 </Typography>
                 <Typography
                   className={classes.cardheader2}
-                  variant="body2"
+                  variant={MQsm ? "caption" : "body2"}
                   align="left"
                   gutterBottom
                 >
@@ -529,7 +602,10 @@ function Marketplace() {
                 </Typography>
                 <Box className={classes.cardbottom}>
                   <Box className={classes.cardbottomleft}>
-                    <Typography variant="h6" align="right">
+                    <Typography
+                      variant={MQsm ? "subtitle1" : "h6"}
+                      align="right"
+                    >
                       $345,679
                     </Typography>
                     <Typography

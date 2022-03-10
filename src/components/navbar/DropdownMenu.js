@@ -3,10 +3,14 @@ import { CryptoContext } from "../../store/crypto-context";
 import { Button, ListItemText, makeStyles, Box } from "@material-ui/core";
 import { StyledMenu, StyledMenuItem } from "./StyledMenu";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   dropmenu: {
     display: "flex",
     marginRight: "5rem",
+    alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: "0",
+    },
   },
 }));
 

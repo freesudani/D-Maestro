@@ -20,37 +20,61 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       height: "110vh",
     },
+    [theme.breakpoints.down("sm")]: {
+      height: "140vh",
+      width: "auto",
+    },
   },
 
   header: {
     color: theme.palette.error.dark,
     textTransform: "uppercase",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
 
   header2: {
     color: "white",
     textTransform: "capitalize",
     fontWeight: "bold",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
 
   body: {
     display: "flex",
     margin: "0.5rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   },
 
   textsection: {
     margin: "0.2rem 2rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0.2rem auto",
+    },
   },
 
   boxheader: {
     fontWeight: theme.typography.fontWeightBold,
     color: "white",
     textTransform: "capitalize",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
 
   boxparag: {
     textAlign: "justify",
     color: "white",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
 
   accountingstaff: {
@@ -63,16 +87,31 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       width: "45rem",
     },
+    [theme.breakpoints.down("sm")]: {
+      width: "35rem",
+      marginTop: "4rem",
+      marginLeft: "0.5rem",
+      marginRight: "auto",
+      textAlign: "center",
+    },
   },
 
   staffimage: {
     marginLeft: "2.5rem",
     height: "5rem",
     width: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "2rem",
+      height: "4rem",
+      width: "4rem",
+    },
   },
   accountingimg: {
     width: "25rem",
     height: "35rem",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 
   staffpos: {
@@ -93,6 +132,7 @@ const Accounting = () => {
   const theme = useTheme();
   const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
   const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   return (
     <Box className={classes.accounting}>
@@ -152,6 +192,7 @@ const Accounting = () => {
           <Grid
             container
             spacing={3}
+            xs={12}
             alignItems="center"
             className={classes.accountingstaff}
           >
@@ -164,7 +205,15 @@ const Accounting = () => {
             </Grid>
             <Grid item xs={6} className={classes.staffpos}>
               <Typography
-                variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle2"}
+                variant={
+                  MQsm
+                    ? "subtitle2"
+                    : MQmd
+                    ? "subtitle1"
+                    : MQlg
+                    ? "h6"
+                    : "subtitle2"
+                }
               >
                 Head of Accounting department
               </Typography>
@@ -182,6 +231,7 @@ const Accounting = () => {
           <Grid
             container
             spacing={3}
+            xs={12}
             alignItems="center"
             className={classes.accountingstaff}
           >

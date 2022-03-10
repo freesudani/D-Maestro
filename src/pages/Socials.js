@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       height: "90vh",
     },
+    [theme.breakpoints.down("sm")]: {
+      height: "100vh",
+    },
   },
 
   header: {

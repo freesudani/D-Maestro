@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       height: "110vh",
     },
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "0",
+      paddingRight: "0",
+      height: "137vh",
+    },
   },
 
   header: {
@@ -37,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
     height: "30rem",
     marginLeft: "7rem",
     filter: "brightness(40%)",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      marginLeft: "0",
+    },
   },
 
   abroker: {
@@ -47,6 +56,12 @@ const useStyles = makeStyles((theme) => ({
     top: "7rem",
     left: "15.5rem",
     width: "60vw",
+    [theme.breakpoints.down("sm")]: {
+      top: "0.2rem",
+      left: "0rem",
+      width: "100%",
+      flexDirection: "column",
+    },
   },
 
   brokerinfo: {
@@ -59,20 +74,35 @@ const useStyles = makeStyles((theme) => ({
   brokprofilepic: {
     borderRadius: "50%",
     marginTop: "0.9rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "8rem",
+      alignSelf: "center",
+    },
   },
 
   brokername: {
     margin: "1rem auto",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0.3rem auto",
+    },
   },
 
   brokerbt: {
     margin: "1rem auto",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0.7rem auto",
+    },
   },
 
   brokertyp: {
     fontStyle: "italic",
     color: "white",
     width: "30rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      alignSelf: "center",
+      paddingTop: "0.4rem",
+    },
   },
 }));
 
@@ -81,6 +111,7 @@ const Broker = () => {
   const theme = useTheme();
   const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
   const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   return (
     <Box className={classes.broker}>
@@ -141,19 +172,19 @@ const Broker = () => {
             </Button>
           </Box>
           <Typography
-            variant="h6"
+            variant={MQsm ? "subtitle1" : "h6"}
             align="justify"
             className={classes.brokertyp}
           >
-            <FormatQuoteSharpIcon fontSize="large" /> Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit. Reprehenderit consequuntur autem
-            voluptatum porro exercitationem delectus qui iste sed impedit,
-            eveniet odio? Illo tenetur quia ad ut, commodi fuga at id. Lorem
-            ipsum dolor sit amet, consectetur adipisicing elit. Deserunt optio
-            iste quia quasi, numquam maxime at eaque consequuntur nesciunt,
-            omnis saepe voluptatem blanditiis labore laborum quam perferendis
-            nam illum eum.
-            <FormatQuoteSharpIcon fontSize="large" />
+            <FormatQuoteSharpIcon fontSize={MQsm ? "small" : "large"} /> Lorem,
+            ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+            consequuntur autem voluptatum porro exercitationem delectus qui iste
+            sed impedit, eveniet odio? Illo tenetur quia ad ut, commodi fuga at
+            id. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Deserunt optio iste quia quasi, numquam maxime at eaque consequuntur
+            nesciunt, omnis saepe voluptatem blanditiis labore laborum quam
+            perferendis nam illum eum.
+            <FormatQuoteSharpIcon fontSize={MQsm ? "small" : "large"} />
           </Typography>
         </Box>
       </Box>

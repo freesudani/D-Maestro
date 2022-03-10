@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     width: "90vw",
     height: "45rem",
     filter: "brightness(50%)",
+    [theme.breakpoints.down("sm")]: {
+      width: "100vw",
+    },
   },
 
   branchbox: {
@@ -45,6 +48,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius,
     border: `2px solid ${theme.palette.error.main}`,
     background: theme.palette.warning.light,
+    [theme.breakpoints.down("md")]: {
+      left: "3rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      left: "5rem",
+    },
   },
 
   generalhead: {
@@ -60,6 +69,7 @@ const EastBranch = () => {
   const theme = useTheme();
   const MQlg = useMediaQuery(theme.breakpoints.down("lg")); //1280px
   const MQmd = useMediaQuery(theme.breakpoints.down("md")); //960px
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 
   const handleOpen = () => {
     setOpen(true);
@@ -79,11 +89,13 @@ const EastBranch = () => {
     >
       <img src={locImage2} alt="office2" className={classes.branchImg} />
       <Box className={classes.branchbox}>
-        <Typography variant={MQmd ? "h3" : MQlg ? "h2" : "h4"}>
+        <Typography variant={MQsm ? "h4" : MQmd ? "h3" : MQlg ? "h2" : "h4"}>
           East Branch
         </Typography>
         <Typography
-          variant={MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle1"}
+          variant={
+            MQsm ? "subtitle2" : MQmd ? "subtitle1" : MQlg ? "h6" : "subtitle1"
+          }
           className={classes.branchtext}
         >
           Visit Mountain America Credit Union’s 47th South Branch at 2627 W 4700
@@ -92,12 +104,17 @@ const EastBranch = () => {
           finance consulting. Drive up and ATM banking services are available at
           the 47th So. Branch.
         </Typography>
-        <Button variant="contained" color="secondary" onClick={handleOpen}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleOpen}
+          size={MQsm ? "medium" : "large"}
+        >
           Schedule an Appointment
         </Button>
       </Box>
       <Box className={classes.generalinfo}>
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container xs={12} spacing={MQsm ? 3 : 4} justifyContent="center">
           <Grid item xs={12}>
             <Typography
               variant={MQmd ? "h4" : MQlg ? "h3" : "h5"}
@@ -107,7 +124,7 @@ const EastBranch = () => {
               General Info
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Typography variant={MQmd ? "h6" : MQlg ? "h5" : "h6"} bold>
               Address
             </Typography>
@@ -118,7 +135,7 @@ const EastBranch = () => {
               (801) 966-2165
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Typography variant={MQmd ? "h6" : MQlg ? "h5" : "h6"} bold>
               Lobby Hours
             </Typography>
@@ -136,7 +153,7 @@ const EastBranch = () => {
             </Typography>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Typography variant={MQmd ? "h6" : MQlg ? "h5" : "h6"} bold>
               Products
             </Typography>

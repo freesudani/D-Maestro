@@ -97,6 +97,9 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #fff",
     overflow: "scroll",
     overflowX: "hidden",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   loader: {
     display: "flex",
@@ -119,10 +122,11 @@ const Home = () => {
 
   return (
     <Grid container xs={12} className={classes.home}>
-      <Grid item xs={1} />
+      <Grid item md={1} xs={1} />
       <Grid
         item
-        xs={6}
+        xs={10}
+        md={6}
         component={motion.div}
         variants={lefttoRightVariants}
         initial="hidden"
@@ -185,7 +189,7 @@ const Home = () => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={4} className={classes.news}>
+      <Grid item xs={0} md={4} className={classes.news}>
         {ctx.iL ? (
           <Box className={classes.loader}>
             <Oval
@@ -199,7 +203,7 @@ const Home = () => {
           <News article={ctx.art} />
         )}
       </Grid>
-      <Grid item xs={1} />
+      <Grid item md={1} xs={1} />
     </Grid>
   );
 };
